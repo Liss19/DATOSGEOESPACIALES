@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocalizacion</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <link rel="stylesheet" href="/css/main.css">
+    
+</head>
+<body>
+    <div id="map-template">
+        
+    </div>
+    
+    <div id="opciones">
+        <select name="delegaciones" id="deleg">
+            <option value="-1">Seleccione uno...</option>
+            <option value="19.3479826,-99.1655411">Coyoacán</option>
+            <option value="19.344574,-99.263043">Álvaro Obregón</option>
+            <option value="19.344574,-99.263043">Álvaro Obregón</option>
+        </select><br><br>
+
+        
+        <input type="number" value="Radio" name="radio" id="radio">
+        <input type="button" value="Calcular" id="boton" onclick="radio()"><br><br>
+        Hospital <br><br>
+        <input type="checkbox" name="" id="priv" onclick="hospitalpriv()"> Privado  <br><br>
+        <input type="checkbox" name="" id="pub"> Publico <br><br>
+        Clinica Medica <br><br>
+        <input type="checkbox" name="" id="priv" onclick="consultpriv()"> Privado <br><br>
+        <input type="checkbox" name="" id="pub"> Publico <br><br>
+        
+
+    </div>
+    
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+   <script src="https://unpkg.com/togeojson@0.16.0"></script>
+   <script src="https://unpkg.com/togeojson@0.16.0"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

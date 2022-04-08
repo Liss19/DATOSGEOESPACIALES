@@ -1,0 +1,27 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+#map-template{
+    height: 100%;
+    width: 80%;
+    top: 0;
+    float: left;
+    position: absolute;
+    background: bisque;
+}
+
+#opciones{
+    height: 100%;
+    width: 21.85%;
+    top: 0;
+    left: 1230px;
+    position: absolute;
+    background: bisque;
+}
+.icon {
+    max-width: 70%;
+    max-height: 70%;
+    margin: 4px;
+      }
