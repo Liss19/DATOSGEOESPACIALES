@@ -3,16 +3,12 @@ body{
     margin: 0;
 }
 
-#map-template{
-    height: 100%;
-    width: 80%;
-    top: 0;
-    float: left;
-    position: absolute;
-    background: bisque;
-}
+.awesome-marker i {
+    font-size: 18px;
+    margin-top: 8px;
+  }
 
-#opciones{
+/*#opciones{
     height: 100%;
     width: 21.85%;
     top: 0;
@@ -24,4 +20,4 @@ body{
     max-width: 70%;
     max-height: 70%;
     margin: 4px;
-      }
+      } */

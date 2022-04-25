@@ -1,47 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geolocalizacion</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+
     <link rel="stylesheet" href="/css/main.css">
-    
+
 </head>
+
 <body>
-    <div id="map-template">
-        
-    </div>
-    
-    <div id="opciones">
-        <select name="delegaciones" id="deleg">
-            <option value="-1">Seleccione uno...</option>
-            <option value="19.3479826,-99.1655411">Coyoacán</option>
-            <option value="19.344574,-99.263043">Álvaro Obregón</option>
-            <option value="19.344574,-99.263043">Álvaro Obregón</option>
-        </select><br><br>
+    <div class="container-fluid">
 
-        
-        <input type="number" value="Radio" name="radio" id="radio">
-        <input type="button" value="Calcular" id="boton" onclick="radio()"><br><br>
-        Hospital <br><br>
-        <input type="checkbox" name="" id="priv" onclick="hospitalpriv()"> Privado  <br><br>
-        <input type="checkbox" name="" id="pub"> Publico <br><br>
-        Clinica Medica <br><br>
-        <input type="checkbox" name="" id="priv" onclick="consultpriv()"> Privado <br><br>
-        <input type="checkbox" name="" id="pub"> Publico <br><br>
-        
+        <div class="row">
+            <div id="map-template" class="col-10">
 
+            </div>
+
+            <div id="opciones" class="col">
+                <!-- <input type="search" name="" id="" autocomplete=""> -->
+                <select name="delegaciones" id="deleg" class="form-select form-select-sm">
+                    <option value="-1">Seleccione uno...</option>
+                    <option value="19.3479826,-99.1655411">Coyoacán</option>
+                    <option value="19.344574,-99.263043">Álvaro Obregón</option>
+                </select>
+
+                <div class="badge bg-primary text-wrap" style="width: 6rem;">
+                    Radio
+                </div>
+                <input type="number" value="Radio" name="radio" id="radio" class="form-control">
+                <div class="d-grid gap-2">
+                    <input type="button" value="Calcular" id="boton" onclick="radio()" class="btn btn-success btn-sm">
+                </div><br>
+                Hospital <br>
+                <input class="form-check-input" type="checkbox" value="" id="hosptpriv" onclick="hospitalpriv()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Privado
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="hosptpub" onclick="hospitalpub()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Publico
+                </label> <br><br>
+                Consultorio Medico <br>
+                <input class="form-check-input" type="checkbox" value="" id="consultpriv" onclick="consultpriv()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Privado
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="consultpub" onclick="consultpub()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Publico
+                </label> <br><br>
+                Clinica Medica <br>
+                <input class="form-check-input" type="checkbox" value="" id="clinicatpriv" onclick="clinicapriv()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Privado
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="clinicapub" onclick="clinicapub()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Publico
+                </label> <br><br>
+                Preescolar <br>
+                <input class="form-check-input" type="checkbox" value="" id="hosptpriv" onclick="preepriv()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Privado
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="hosptpub" onclick="preepub()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Publico
+                </label> <br><br>
+                Primaria <br>
+                <input class="form-check-input" type="checkbox" value="" id="hosptpriv" onclick="primpriv()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Privado
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="hosptpub" onclick="primpub()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Publico
+                </label> <br><br>
+                Secundaria <br>
+                <input class="form-check-input" type="checkbox" value="" id="consultpriv" onclick="secpriv()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Privado
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="consultpub" onclick="secpub()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Publico
+                </label> <br><br>
+                Preparatoria <br>
+                <input class="form-check-input" type="checkbox" value="" id="clinicatpriv" onclick="preppriv()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Privado
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="clinicapub" onclick="preppub()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Publico
+                </label> <br><br>
+                Universidad <br>
+                <input class="form-check-input" type="checkbox" value="" id="clinicatpriv" onclick="unipriv()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Privado
+                </label>
+                <input class="form-check-input" type="checkbox" value="" id="clinicapub" onclick="unipub()">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Publico
+                </label> <br><br>
+
+
+            </div>
+        </div>
     </div>
+
     
-    
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-   <script src="https://unpkg.com/togeojson@0.16.0"></script>
-   <script src="https://unpkg.com/togeojson@0.16.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src="https://unpkg.com/togeojson@0.16.0"></script>
+    <script src="https://unpkg.com/togeojson@0.16.0"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
     <script src="/js/main.js"></script>
 </body>
+
 </html>
