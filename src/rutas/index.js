@@ -12,7 +12,7 @@ router.get('/', (req,res)=> {
         console.log(lat, long)
         // marcadores(lat,long)
 
-        res.render('index');
+    res.render('index');
     })
 
 });

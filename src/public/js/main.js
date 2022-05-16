@@ -1,12 +1,10 @@
 // user glocate  pass SRQncgBTq9I5kLjq
 
-//var someFeatures = [[{ "type": "FeatureCollection", "features": [{ "type": "Feature", "geometry": { "type": "MultiLineString", "coordinates": [[[-99.08272, 19.40703], [-99.0809, 19.40685], [-99.08006, 19.40675], [-99.07905, 19.40679], [-99.07857, 19.40696], [-99.07831, 19.40639], [-99.07803, 19.40617], [-99.07735, 19.40583], [-99.07992, 19.39971], [-99.08044, 19.39852], [-99.08153, 19.39332], [-99.08041, 19.39312], [-99.07956, 19.39304], [-99.07881, 19.39291], [-99.07657, 19.39245], [-99.07404, 19.39206], [-99.07145, 19.39164], [-99.06891, 19.39113], [-99.06634, 19.39075], [-99.06396, 19.39032], [-99.06226, 19.39006], [-99.0599, 19.3897], [-99.05934, 19.38964], [-99.05853, 19.38925], [-99.05704, 19.38825], [-99.05535, 19.38715], [-99.05218, 19.38504], [-99.05197, 19.38494], [-99.05185, 19.38504], [-99.05043, 19.38741], [-99.04834, 19.39095], [-99.04733, 19.39042], [-99.04663, 19.39007], [-99.0461, 19.38982], [-99.04658, 19.38887], [-99.04742, 19.38756], [-99.04726, 19.38748], [-99.04679, 19.38829], [-99.0463, 19.38909], [-99.04598, 19.38975], [-99.0448, 19.39168], [-99.04325, 19.39391], [-99.04183, 19.39329], [-99.04039, 19.39264], [-99.03886, 19.39196], [-99.03736, 19.39123], [-99.03721, 19.39119], [-99.03736, 19.39097], [-99.03706, 19.39077], [-99.0366, 19.39051], [-99.03638, 19.39039], [-99.03612, 19.39024], [-99.03612, 19.39024], [-99.03612, 19.39024], [-99.03612, 19.39024]]] } }] }]]
-
 var marker, marcador
 var markercolonias = []
-var markerconsultpriv = [], markerhospitalpriv = [], markerhospitalpub = []
+var markerconsultpriv = [], markerhospitalpriv = [], markerhospitalpub = [], infohospitalpriv = []
 var markercp, markerhp, markerhpub
-const colonias = [{
+/*const colonias = [{
   "id": 1,
   "nombre": "LOMAS DE CHAPULTEPEC",
   "lat": 19.42284112,
@@ -125,7 +123,7 @@ const colonias = [{
   "long": -99.11743224,
   "cve_alc": 16,
   "alcaldia": "VENUSTIANO CARRANZA"
-}]
+}]*/
 const consultprivado = [{
   "id": 1,
   "nombre": "ACERCATE FEM",
@@ -521,35 +519,77 @@ const hospitalpublico = [{
 }]
 let latlng = 0
 let i = 0
-const map = L.map('map-template').setView([19.42847, -99.12766], 12)
+
+const map = L.map('map-template').setView([19.42847, -99.12766], 15)
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
 
 var marcadorEscuelas = L.AwesomeMarkers.icon({
   icon: 'school',
-  prefix:'fa',
+  prefix: 'fa',
   markerColor: 'red',
   iconColor: 'white'
 });
 var marcadorHospitales = L.AwesomeMarkers.icon({
   icon: 'hospital',
-  prefix:'fa',
+  prefix: 'fa',
   markerColor: 'green',
   iconColor: 'white'
 });
 
 var marcadorColonias = L.AwesomeMarkers.icon({
   icon: 'user',
-  prefix:'fa',
+  prefix: 'fa',
   markerColor: 'black',
   iconColor: 'white'
 });
+// const travelTimes = [300, 600, 900, 1200, 1500, 1800];
+// const center =[19.42847, -99.12766]
+// const options = {
+//   travelType: 'bike',
+//   travelEdgeWeights: travelTimes,
+//   maxEdgeWeight: 1800,
+//   edgeWeight: 'time',
+//   serializer: 'json'
+// };
+// const sources = [{ id: 0, lat: center[0], lng: center[1] }];
 
-colonias.map((point) => {
-  marker = L.marker([point.lat, point.long], {icon:marcadorColonias}).addTo(map)
-  marker.bindPopup('<b>' + point.nombre + '</b><br>' + point.alcaldia).openPopup()
-  markercolonias.push(marker)
+// // Add markers for the sources on the map.
+// sources.forEach(source => {
+//   L.marker([source.lat, source.lng]).addTo(map)
+// });
 
-})
+// // define the polygon overlay
+// const polygonOverlayLayer = new tgm.leaflet.TgmLeafletPolygonOverlay({ strokeWidth: 20 });
+// polygonOverlayLayer.addTo(map);
+
+// // get the polygons
+// const polygons = await client.polygons.fetch(sources, options);
+// // calculate bounding box for polygons
+// const bounds = polygons.getMaxBounds();
+// // add polygons to overlay
+// polygonOverlayLayer.setData(polygons);
+// // zoom to the polygon bounds
+// map.fitBounds(new L.latLngBounds(bounds.northEast, bounds.southWest));
+
+//configurar popup
+function popup(feature, layer) {
+  if (feature.properties && feature.properties.route_name) {
+    layer.bindPopup("<b> Nombre: " + feature.properties.route_name + "</b><br><b> RutaID: " + feature.properties.route_id + "</b>")
+  }
+}
+
+//agregar geojson
+L.geoJSON(rutas).addTo(map);
+
+var rutasJS = L.geoJSON(rutas, {
+  onEachFeature: popup,
+  color: "#CB3234",
+  weight: 1
+}).addTo(map);
+
+
+
+
 
 function hospitalpriv() {
   const radius = document.getElementById('radio').value
@@ -560,22 +600,21 @@ function hospitalpriv() {
       colonias.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerhp = L.marker([point.latitud, point.longitud], {icon:marcadorHospitales}).addTo(map)
+          markerhp = L.marker([point.latitud, point.longitud], { icon: marcadorHospitales }).addTo(map)
           markerhp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerhospitalpriv.push(markerhp)
+          infohospitalpriv.push({ "nombre": point.nombre, "nivel": point.nivel, "tipo": point.tipo, "nombrecolonia": point1.nombre, "alcaldia": point1.alcaldia })
         }
       })
-      // markerhp=L.marker([point.latitud, point.longitud]).addTo(map)
-      // markerhp.bindPopup(point.nombre+'<br> '+point.nivel).openPopup()
-      // markerhospitalpriv.push(markerhp)
-
     })
   } else {
     markerhospitalpriv.map((point) => {
       map.removeLayer(point);
     })
+    infohospitalpriv.length = 0;
 
   }
+  console.log(infohospitalpriv);
 }
 
 function hospitalpub() {
@@ -587,7 +626,7 @@ function hospitalpub() {
       colonias.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerhpub = L.marker([point.latitud, point.longitud]).addTo(map)
+          markerhpub = L.marker([point.latitud, point.longitud], { icon: marcadorHospitales }).addTo(map)
           markerhpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerhospitalpub.push(markerhpub)
         }
@@ -661,15 +700,15 @@ function radio() {
 document.getElementById('deleg').addEventListener('change', function (e) {
   let coords = e.target.value.split(",")
   map.flyTo(coords, 15)
+
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
+  colonias.map((point) => {
+    if (selected == point.alcaldia) {
+      marker = L.marker([point.lat, point.long], { icon: marcadorColonias }).addTo(map)
+      marker.bindPopup('<b>' + point.nombre + '</b><br>' + point.alcaldia).openPopup()
+      markercolonias.push(marker)
+    }
+  })
+
 })
-
-
-
-
-
-
-// exports.getData = async(req, res) => {
-//     await Colonia.find({},(err,docs)=>{
-//         res.console({docs})
-//     })
-// }
