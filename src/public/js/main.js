@@ -163,70 +163,60 @@ hospitalesprivados()
 async function hospitalesprivados() {
   hospitalprivado = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatoshospitalprivado') // 1
     .then(response => response.json()) // 2
-  console.log(hospitalprivado)
 }
 
 hospitalespublicos()
 async function hospitalespublicos() {
   hospitalpublico = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatoshospitalpublico') // 1
     .then(response => response.json()) // 2
-  console.log(hospitalpublico)
 }
 
 consultoriosprivados()
 async function consultoriosprivados() {
   consultprivado = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosconsultorioprivado') // 1
     .then(response => response.json()) // 2
-  console.log(consultprivado)
 }
 
 consultoriospublicos()
 async function consultoriospublicos() {
   consultpublico = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosconsultoriopublico') // 1
     .then(response => response.json()) // 2
-  console.log(consultpublico)
 }
 
 clinicasprivadas()
 async function clinicasprivadas() {
   clinicaprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosclinicaprivada') // 1
     .then(response => response.json()) // 2
-  console.log(clinicaprivada)
 }
 
 clinicaspublicas()
 async function clinicaspublicas() {
   clinicapublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosclinicapublica') // 1
     .then(response => response.json()) // 2
-  console.log(clinicapublica)
 }
 
 preescolarprivada()
 async function preescolarprivada() {
   preeprivado = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatospreescolarprivada') // 1
     .then(response => response.json()) // 2
-  console.log(preeprivado)
 }
 
 preescolarpublica()
 async function preescolarpublica() {
   preepublico = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatospreescolarpublica') // 1
     .then(response => response.json()) // 2
-  console.log(preepublico)
 }
 
 primariaprivada()
 async function primariaprivada() {
   primprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosprimariaprivada') // 1
     .then(response => response.json()) // 2
-  console.log(primprivada)
 }
 
 primariapublica()
 async function primariapublica() {
   primpublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosprimariapublica') // 1
     .then(response => response.json()) // 2
-  console.log(primpublica)
 }
 
 secundariaprivada()
@@ -240,35 +230,30 @@ secundariapublica()
 async function secundariapublica() {
   secpublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatossecundariapublica') // 1
     .then(response => response.json()) // 2
-  console.log(secpublica)
 }
 
 preparatoriaprivada()
 async function preparatoriaprivada() {
   prepaprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatospreparatoriaprivada') // 1
     .then(response => response.json()) // 2
-  console.log(prepaprivada)
 }
 
 preparatoriapublica()
 async function preparatoriapublica() {
   prepapublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatospreparatoriapublica') // 1
     .then(response => response.json()) // 2
-  console.log(prepapublica)
 }
 
 universidadprivada()
 async function universidadprivada() {
   uniprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosuniversidadprivada') // 1
     .then(response => response.json()) // 2
-  console.log(uniprivada)
 }
 
 universidadpublica()
 async function universidadpublica() {
   unipublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosuniversidadpublica') // 1
     .then(response => response.json()) // 2
-  console.log(unipublica)
 }
 
 // Creacion de Marcadores
@@ -294,7 +279,6 @@ function hospitalpriv() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
           markerhp.bindPopup(('<b>' + point.nombre + '</b><br>' + point.nivel + '<br><p style="width: 100%;">' + result + '</p>'), estilopopup).openPopup()
@@ -332,10 +316,8 @@ function hospitalpub() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerhpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerhospitalpub.push(markerhpub)
         }
@@ -368,10 +350,8 @@ function consultpriv() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markercp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerconsultpriv.push(markercp)
         }
@@ -404,10 +384,8 @@ function consultpub() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markercpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerconsultpub.push(markercp)
         }
@@ -440,10 +418,8 @@ function clinicapriv() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerclinp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerclinicapriv.push(markerclinp)
         }
@@ -476,10 +452,8 @@ function clinicapub() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerclinpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerclinicapub.push(markerclinpub)
         }
@@ -512,10 +486,8 @@ function preepriv() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerpreep.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreescolarpriv.push(markerpreep)
         }
@@ -548,10 +520,8 @@ function preepub() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerpreepub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreescolarpub.push(markerpreepub)
         }
@@ -584,10 +554,8 @@ function primpriv() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerprimp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerprimariapriv.push(markerprimp)
         }
@@ -620,9 +588,7 @@ function primpub() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
-          let result = [...dataArr];
           console.log(result);
           markerprimpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerprimariapub.push(markerprimpub)
@@ -656,10 +622,8 @@ function secpriv() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markersecp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markersecundariapriv.push(markersecp)
         }
@@ -692,10 +656,8 @@ function secpub() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markersecpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markersecundariapub.push(markersecpub)
         }
@@ -729,10 +691,8 @@ function prepapriv() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerprepap.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreparatoriapriv.push(markerprepap)
         }
@@ -765,10 +725,8 @@ function prepapub() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerprepapub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreparatoriapub.push(markerprepapub)
         }
@@ -801,10 +759,8 @@ function unipriv() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerunip.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markeruniversidadpriv.push(markerunip)
         }
@@ -837,10 +793,8 @@ function unipub() {
             })
           })
           let single = [].concat(...rutas2);
-          console.log(single)
           const dataArr = new Set(single);
           let result = [...dataArr];
-          console.log(result);
           markerunipub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markeruniversidadpub.push(markerunipub)
         }
@@ -1036,7 +990,6 @@ document.getElementById('deleg').addEventListener('change', function (e) {
       colonias2.push(point)
     }
   })
-  console.log(colonias2)
 })
 
 function datosgenerales() {
