@@ -223,7 +223,6 @@ secundariaprivada()
 async function secundariaprivada() {
   secprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatossecundariaprivada') // 1
     .then(response => response.json()) // 2
-  console.log(secprivada)
 }
 
 secundariapublica()
@@ -286,7 +285,6 @@ function hospitalpriv() {
         }
       })
       infohospitalpriv.push(markerhospitalpriv.length)
-      
     })
   } else {
     markerhospitalpriv.map((point) => {
@@ -340,7 +338,7 @@ function consultpriv() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markercp = L.marker([point.latitud, point.longitud],{icon: marcadorConsultorios}).addTo(map)
+          markercp = L.marker([point.latitud, point.longitud], { icon: marcadorConsultorios }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -374,7 +372,7 @@ function consultpub() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markercpub = L.marker([point.latitud, point.longitud],{icon: marcadorConsultoriosPub}).addTo(map)
+          markercpub = L.marker([point.latitud, point.longitud], { icon: marcadorConsultoriosPub }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -408,7 +406,7 @@ function clinicapriv() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerclinp = L.marker([point.latitud, point.longitud],{icon: marcadorClinicas}).addTo(map)
+          markerclinp = L.marker([point.latitud, point.longitud], { icon: marcadorClinicas }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -442,7 +440,7 @@ function clinicapub() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerclinpub = L.marker([point.latitud, point.longitud],{icon: marcadorClinicasPub}).addTo(map)
+          markerclinpub = L.marker([point.latitud, point.longitud], { icon: marcadorClinicasPub }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -476,7 +474,7 @@ function preepriv() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerpreep = L.marker([point.latitud, point.longitud],{icon: marcadorPreescolar}).addTo(map)
+          markerpreep = L.marker([point.latitud, point.longitud], { icon: marcadorPreescolar }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -510,7 +508,7 @@ function preepub() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerpreepub = L.marker([point.latitud, point.longitud],{icon: marcadorPreescolarPub}).addTo(map)
+          markerpreepub = L.marker([point.latitud, point.longitud], { icon: marcadorPreescolarPub }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -544,7 +542,7 @@ function primpriv() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerprimp = L.marker([point.latitud, point.longitud],{icon: marcadorPrimarias}).addTo(map)
+          markerprimp = L.marker([point.latitud, point.longitud], { icon: marcadorPrimarias }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -578,7 +576,7 @@ function primpub() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerprimpub = L.marker([point.latitud, point.longitud],{icon: marcadorPrimariasPub}).addTo(map)
+          markerprimpub = L.marker([point.latitud, point.longitud], { icon: marcadorPrimariasPub }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -612,7 +610,7 @@ function secpriv() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markersecp = L.marker([point.latitud, point.longitud],{icon: marcadorSecundarias}).addTo(map)
+          markersecp = L.marker([point.latitud, point.longitud], { icon: marcadorSecundarias }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -646,7 +644,7 @@ function secpub() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markersecpub = L.marker([point.latitud, point.longitud],{icon: marcadorSecundariasPub}).addTo(map)
+          markersecpub = L.marker([point.latitud, point.longitud], { icon: marcadorSecundariasPub }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -681,7 +679,7 @@ function prepapriv() {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
 
-          markerprepap = L.marker([point.latitud, point.longitud],{icon: marcadorPreparatorias}).addTo(map)
+          markerprepap = L.marker([point.latitud, point.longitud], { icon: marcadorPreparatorias }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -715,7 +713,7 @@ function prepapub() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerprepapub = L.marker([point.latitud, point.longitud],{icon: marcadorPreparatoriasPub}).addTo(map)
+          markerprepapub = L.marker([point.latitud, point.longitud], { icon: marcadorPreparatoriasPub }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -749,7 +747,7 @@ function unipriv() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerunip = L.marker([point.latitud, point.longitud],{icon: marcadorUniversidades}).addTo(map)
+          markerunip = L.marker([point.latitud, point.longitud], { icon: marcadorUniversidades }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -783,7 +781,7 @@ function unipub() {
       colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerunipub = L.marker([point.latitud, point.longitud],{icon: marcadorUniversidadesPub}).addTo(map)
+          markerunipub = L.marker([point.latitud, point.longitud], { icon: marcadorUniversidadesPub }).addTo(map)
           paradas.map((punto) => {
             punto.features.map((punto2) => {
               distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
@@ -988,37 +986,42 @@ document.getElementById('deleg').addEventListener('change', function (e) {
       marker.bindPopup('<b>' + point.nombre + '</b><br>' + point.alcaldia).openPopup()
       markercolonias.push(marker)
       colonias2.push(point)
+      
     }
   })
+  console.log(colonias2)
 })
 
 function datosgenerales() {
+  const dataArr = new Set(markerhospitalpriv);
+  let result = [...dataArr];
+  console.log(result)
   const radius = document.getElementById('radiosalud').value
   const radius2 = document.getElementById('radioeducacion').value
   var combo = document.getElementById("deleg");
   var selected = combo.options[combo.selectedIndex].text;
   infogeneralsalud.push({ "alcaldia": selected, "radio": radius, "hospitalesprivados": markerhospitalpriv.length, "hospitalespublicos": markerhospitalpub.length, "consultoriosprivados": markerconsultpriv.length, "consultoriospublicos": markerconsultpub.length, "clinicasprivadas": markerclinicapriv.length, "clinicaspublicas": markerclinicapub.length })
 
-  infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadespublicas" : markeruniversidadpub.length, "universidadesprivadas" : markeruniversidadpriv.length })
+  infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadespublicas": markeruniversidadpub.length, "universidadesprivadas": markeruniversidadpriv.length })
   console.log(infogeneraleducacion)
   guardararchivo()
 }
 
 function guardararchivo() {
 
-    fetch('/creararchivosalud', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(infogeneralsalud)
-    }).then(res => console.log('archivo creado')).catch(err => console.log(err))
+  fetch('/creararchivosalud', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(infogeneralsalud)
+  }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 
-    fetch('/creararchivoeducacion', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(infogeneraleducacion)
-    }).then(res => console.log('archivo creado')).catch(err => console.log(err))
+  fetch('/creararchivoeducacion', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(infogeneraleducacion)
+  }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 }
