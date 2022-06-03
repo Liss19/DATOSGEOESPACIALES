@@ -4,12 +4,12 @@
 
 //var marker, marcador
 var markercolonias = [], colonias2 = [], colonias1 = [], escuelas1 = []
-var markerconsultpriv = [], markerhospitalpriv = [], markerhospitalpub = [], markerconsultpub = [], markerclinicapriv = [], markerclinicapub = [], markerpreescolarpriv = [], markerpreescolarpub = [], markerprimariapriv = [], markerprimariapub = [], markersecundariapriv = [], markerhospitalpriv2 = [], markersecundariapub = [], markerpreparatoriapriv = [], markerpreparatoriapub = [], markeruniversidadpriv = [], markeruniversidadpub = []
+var markerconsultpriv = [], markerconsultpriv2 = [], markerhospitalpriv = [], markerhospitalpriv2 = [], markerhospitalpub = [], markerconsultpub = [], markerconsultpub2 = [], markerclinicapriv = [], markerclinicapriv2 = [], markerclinicapub = [], markerclinicapub2 = [], markerpreescolarpriv = [], markerpreescolarpriv2 = [], markerpreescolarpub = [], markerpreescolarpub2 = [], markerprimariapriv = [], markerprimariapriv2 = [], markerprimariapub = [], markerprimariapub2 = [], markersecundariapriv = [], markersecundariapriv2 = [], markersecundariapub = [], markersecundariapub2 = [], markerpreparatoriapriv = [], markerpreparatoriapriv2 = [], markerpreparatoriapub = [], markerpreparatoriapub2 = [], markeruniversidadpriv = [], markeruniversidadpriv2 = [], markeruniversidadpub2 = [], markeruniversidadpub = []
 var markercp, markerhp, markerhpub, markercpub, markerclinp, markerclinpub, markerpreep, markerpreepub, markerprimp, markerprimpub, markersecp, markersecpub, markerprepap, markerprepapub, markerunip, markerunipub
 var infogeneralsalud = [], infogeneraleducacion = [], infohospitalpriv = [], infohospitalpub = [], infoconsulturiopriv = [], infoconsultoriopub = [], infoclinicapriv = [], infoclinicapub = [], infopreepriv = [], infopreepub = [], infoprimpriv = [], infoprimpub = [], infosecpriv = [], infosecpub = [], infoprepapriv = [], infoprepapub = [], infounipriv = [], infounipub = []
 var consultprivado = [], hospitalprivado = [], hospitalpublico = [], consultpublico = [], clinicapublica = [], clinicaprivada = [], preepublico = [], preeprivado = [], primpublica = [], primprivada = [], secpublica = [], secprivada = [], prepaprivada = [], prepapublica = [], uniprivada = [], unipublica = []
 let latlng = 0
-let i = 0, contador;
+let i = 0, contador = 0;
 var distance, distance2, rutas2 = [], rutasremp = [];
 
 const map = L.map('map-template').setView([19.42847, -99.12766], 15)
@@ -294,7 +294,6 @@ function hospitalpriv() {
       map.removeLayer(point);
     })
   }
-  console.log(infohospitalpriv)
 }
 
 
@@ -304,6 +303,7 @@ function hospitalpub() {
   var checked = check.checked;
   if (checked) {
     colonias2.map((point1) => {
+      markerhospitalpub2.length = 0;
       hospitalpublico.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
@@ -321,8 +321,10 @@ function hospitalpub() {
           let result = [...dataArr];
           markerhpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerhospitalpub.push(markerhpub)
+          markerhospitalpub2.push(markerhpub)
         }
       })
+      infohospitalpub.push(markerhospitalpub2.length)
     })
   } else {
     markerhospitalpub.map((point) => {
@@ -337,8 +339,9 @@ function consultpriv() {
   var check = document.getElementById('privadosalud');
   var checked = check.checked;
   if (checked) {
-    consultprivado.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markerconsultpriv2.length = 0;
+      consultprivado.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markercp = L.marker([point.latitud, point.longitud], { icon: marcadorConsultorios }).addTo(map)
@@ -355,8 +358,10 @@ function consultpriv() {
           let result = [...dataArr];
           markercp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerconsultpriv.push(markercp)
+          markerconsultpriv2.push(markercp)
         }
       })
+      infoconsulturiopriv.push(markerconsultoriopriv2.length)
     })
   } else {
     markerconsultpriv.map((point) => {
@@ -371,8 +376,9 @@ function consultpub() {
   var check = document.getElementById('publicosalud');
   var checked = check.checked;
   if (checked) {
-    consultpublico.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markerconsultpub2.length = 0;
+      consultpublico.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markercpub = L.marker([point.latitud, point.longitud], { icon: marcadorConsultoriosPub }).addTo(map)
@@ -389,8 +395,10 @@ function consultpub() {
           let result = [...dataArr];
           markercpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerconsultpub.push(markercp)
+          markerconsultpub2.push(markercp)
         }
       })
+      infoconsulturiopub.push(markerconsultoriopub2.length)
     })
   } else {
     markerconsultpub.map((point) => {
@@ -405,8 +413,9 @@ function clinicapriv() {
   var check = document.getElementById('privadosalud');
   var checked = check.checked;
   if (checked) {
-    clinicaprivada.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markerclinicapriv2.length = 0;
+      clinicaprivada.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerclinp = L.marker([point.latitud, point.longitud], { icon: marcadorClinicas }).addTo(map)
@@ -423,8 +432,10 @@ function clinicapriv() {
           let result = [...dataArr];
           markerclinp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerclinicapriv.push(markerclinp)
+          markerclinicapriv2.push(markerclinp)
         }
       })
+      infoclinicapriv.push(markerclinicapriv2.length)
     })
   } else {
     markerclinicapriv.map((point) => {
@@ -439,8 +450,8 @@ function clinicapub() {
   var check = document.getElementById('publicosalud');
   var checked = check.checked;
   if (checked) {
-    clinicapublica.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      clinicapublica.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerclinpub = L.marker([point.latitud, point.longitud], { icon: marcadorClinicasPub }).addTo(map)
@@ -457,8 +468,10 @@ function clinicapub() {
           let result = [...dataArr];
           markerclinpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerclinicapub.push(markerclinpub)
+          markerclinicapub2.push(markerclinpub)
         }
       })
+      infoclinicapub.push(markerclinicapub2.length)
     })
   } else {
     markerclinicapub.map((point) => {
@@ -473,8 +486,9 @@ function preepriv() {
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
   if (checked) {
-    preeprivado.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markerpreescolarpriv2.length = 0;
+      preeprivado.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerpreep = L.marker([point.latitud, point.longitud], { icon: marcadorPreescolar }).addTo(map)
@@ -491,8 +505,10 @@ function preepriv() {
           let result = [...dataArr];
           markerpreep.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreescolarpriv.push(markerpreep)
+          markerpreescolarpriv2.push(markerpreep)
         }
       })
+      infopreepriv.push(markerpreescolarpriv2.length)
     })
   } else {
     markerpreescolarpriv.map((point) => {
@@ -507,8 +523,9 @@ function preepub() {
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
   if (checked) {
-    preepublico.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markerpreescolarpub2.length = 0;
+      preepublico.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerpreepub = L.marker([point.latitud, point.longitud], { icon: marcadorPreescolarPub }).addTo(map)
@@ -525,8 +542,10 @@ function preepub() {
           let result = [...dataArr];
           markerpreepub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreescolarpub.push(markerpreepub)
+          markerpreescolarpub2.push(markerpreepub)
         }
       })
+      infopreepub.push(markerpreescolarpub2.length)
     })
   } else {
     markerpreescolarpub.map((point) => {
@@ -541,8 +560,9 @@ function primpriv() {
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
   if (checked) {
-    primprivada.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markerprimariapriv2.length = 0;
+      primprivada.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerprimp = L.marker([point.latitud, point.longitud], { icon: marcadorPrimarias }).addTo(map)
@@ -559,8 +579,10 @@ function primpriv() {
           let result = [...dataArr];
           markerprimp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerprimariapriv.push(markerprimp)
+          markerprimariapriv.push(markerprimp)
         }
       })
+      infoprimpriv.push(markerprimariapriv2.length)
     })
   } else {
     markerprimariapriv.map((point) => {
@@ -575,8 +597,9 @@ function primpub() {
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
   if (checked) {
-    primpublica.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markerprimariapub2.length = 0;
+      primpublica.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerprimpub = L.marker([point.latitud, point.longitud], { icon: marcadorPrimariasPub }).addTo(map)
@@ -593,8 +616,10 @@ function primpub() {
           console.log(result);
           markerprimpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerprimariapub.push(markerprimpub)
+          markerprimariapub2.push(markerprimpub)
         }
       })
+      infoprimpriv.push(markerprimariapub2.length)
     })
   } else {
     markerprimariapub.map((point) => {
@@ -609,8 +634,9 @@ function secpriv() {
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
   if (checked) {
-    secprivada.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markersecundariapriv2.length = 0;
+      secprivada.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markersecp = L.marker([point.latitud, point.longitud], { icon: marcadorSecundarias }).addTo(map)
@@ -627,8 +653,10 @@ function secpriv() {
           let result = [...dataArr];
           markersecp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markersecundariapriv.push(markersecp)
+          markersecundariapriv2.push(markersecp)
         }
       })
+      infosecpriv.push(markersecundariapriv2.length)
     })
   } else {
     markersecundariapriv.map((point) => {
@@ -643,8 +671,9 @@ function secpub() {
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
   if (checked) {
-    secpublica.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markersecundariapub2.length = 0;
+      secpublica.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markersecpub = L.marker([point.latitud, point.longitud], { icon: marcadorSecundariasPub }).addTo(map)
@@ -661,8 +690,10 @@ function secpub() {
           let result = [...dataArr];
           markersecpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markersecundariapub.push(markersecpub)
+          markersecundariapub2.push(markersecpub)
         }
       })
+      infosecpub.push(markersecundariapub2.length)
     })
   } else {
     markersecundariapub.map((point) => {
@@ -677,8 +708,9 @@ function prepapriv() {
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
   if (checked) {
-    prepaprivada.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markerpreparatoriapriv2.length = 0;
+      prepaprivada.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
 
@@ -696,8 +728,10 @@ function prepapriv() {
           let result = [...dataArr];
           markerprepap.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreparatoriapriv.push(markerprepap)
+          markerpreparatoriapriv2.push(markerprepap)
         }
       })
+      infoprepapriv.push(markerpreparatoriapriv2.length)
     })
   } else {
     markerpreparatoriapriv.map((point) => {
@@ -712,8 +746,9 @@ function prepapub() {
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
   if (checked) {
-    prepapublica.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markerpreparatoriapub2.length = 0;
+      prepapublica.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerprepapub = L.marker([point.latitud, point.longitud], { icon: marcadorPreparatoriasPub }).addTo(map)
@@ -730,8 +765,10 @@ function prepapub() {
           let result = [...dataArr];
           markerprepapub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreparatoriapub.push(markerprepapub)
+          markerpreparatoriapub2.push(markerprepapub)
         }
       })
+      infoprepapub.push(markerpreparatoriapub2.length)
     })
   } else {
     markerpreparatoriapub.map((point) => {
@@ -746,8 +783,9 @@ function unipriv() {
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
   if (checked) {
-    uniprivada.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markeruniversidadpriv2.length = 0;
+      uniprivada.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerunip = L.marker([point.latitud, point.longitud], { icon: marcadorUniversidades }).addTo(map)
@@ -764,8 +802,10 @@ function unipriv() {
           let result = [...dataArr];
           markerunip.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markeruniversidadpriv.push(markerunip)
+          markeruniversidadpriv2.push(markerunip)
         }
       })
+      infounipriv.push(markeruniversidadpriv2.length)
     })
   } else {
     markeruniversidadpriv.map((point) => {
@@ -780,8 +820,9 @@ function unipub() {
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
   if (checked) {
-    unipublica.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      markeruniversidadpub2.length = 0;
+      unipublica.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerunipub = L.marker([point.latitud, point.longitud], { icon: marcadorUniversidadesPub }).addTo(map)
@@ -798,8 +839,10 @@ function unipub() {
           let result = [...dataArr];
           markerunipub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markeruniversidadpub.push(markerunipub)
+          markeruniversidadpub2.push(markerunipub)
         }
       })
+      infounipub.push(markeruniversidadpub2.length)
     })
   } else {
     markeruniversidadpub.map((point) => {
@@ -996,17 +1039,24 @@ document.getElementById('deleg').addEventListener('change', function (e) {
 })
 
 function datosgenerales() {
-  const dataArr = new Set(markerhospitalpriv);
-  let result = [...dataArr];
-  console.log(result)
+
   const radius = document.getElementById('radiosalud').value
   const radius2 = document.getElementById('radioeducacion').value
   var combo = document.getElementById("deleg");
   var selected = combo.options[combo.selectedIndex].text;
-  infogeneralsalud.push({ "alcaldia": selected, "radio": radius, "hospitalesprivados": markerhospitalpriv.length, "hospitalespublicos": markerhospitalpub.length, "consultoriosprivados": markerconsultpriv.length, "consultoriospublicos": markerconsultpub.length, "clinicasprivadas": markerclinicapriv.length, "clinicaspublicas": markerclinicapub.length })
 
-  infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadespublicas": markeruniversidadpub.length, "universidadesprivadas": markeruniversidadpriv.length })
+  colonias2.map((point) =>{
+    infogeneralsalud.push({ "alcaldia": selected, "radio": radius, "id_colonia": point.id, "colonia": point.nombre, "hospitalesprivados": infohospitalpriv[contador], "hospitalespublicos": infohospitalpub[contador], "consultoriosprivados": infoconsulturiopriv[contador], "consultoriospublicos": infoconsultoriopub[contador], "clinicasprivadas": infoclinicapriv[contador], "clinicaspublicas": infoclinicapub[contador] })
+
+    infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2,"id_colonia": point.id, "colonia": point.nombre, "preescolarprivados": infopreepriv[contador], "preescolarpublicos": infopreepub[contador], "primariasprivadas": infoprimpriv[contador], "primariaspublicas": infoprimpub[contador], "secundariasprivadas": infosecpriv[contador], "secundariaspublicas": infosecpub[contador], "preparatoriasprivadas": infoprepapriv[contador], "preparatoriaspublicas": infoprepapub[contador], "universidadespublicas": infounipriv[contador], "universidadesprivadas": infounipub[contador] })
+
+    contador++;
+  })
+  // infogeneralsalud.push({ "alcaldia": selected, "radio": radius, "hospitalesprivados": markerhospitalpriv.length, "hospitalespublicos": markerhospitalpub.length, "consultoriosprivados": markerconsultpriv.length, "consultoriospublicos": markerconsultpub.length, "clinicasprivadas": markerclinicapriv.length, "clinicaspublicas": markerclinicapub.length })
+
+  // infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadespublicas": markeruniversidadpub.length, "universidadesprivadas": markeruniversidadpriv.length })
   console.log(infogeneraleducacion)
+  console.log(infogeneralsalud)
   guardararchivo()
 }
 
