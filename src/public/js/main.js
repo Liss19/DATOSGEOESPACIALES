@@ -6,7 +6,7 @@
 var markercolonias = [], colonias2 = [], colonias1 = [], escuelas1 = []
 var markerconsultpriv = [], markerhospitalpriv = [], markerhospitalpub = [], markerconsultpub = [], markerclinicapriv = [], markerclinicapub = [], markerpreescolarpriv = [], markerpreescolarpub = [], markerprimariapriv = [], markerprimariapub = [], markersecundariapriv = [], markersecundariapub = [], markerpreparatoriapriv = [], markerpreparatoriapub = [], markeruniversidadpriv = [], markeruniversidadpub = []
 var markercp, markerhp, markerhpub, markercpub, markerclinp, markerclinpub, markerpreep, markerpreepub, markerprimp, markerprimpub, markersecp, markersecpub, markerprepap, markerprepapub, markerunip, markerunipub
-var infogeneralsalud = [], infogeneraleducacion = []
+var infogeneralsalud = [], infogeneraleducacion = [], infohospitalpriv = [], infohospitalpub = [], infoconsulturiopriv = [], infoconsultoriopub = [], infoclinicapriv = [], infoclinicapub = [], infopreepriv = [], infopreepub = [], infoprimpriv = [], infoprimpub = [], infosecpriv = [], infosecpub = [], infoprepapriv = [], infoprepapub = [], infounipriv = [], infounipub = []
 var consultprivado = [], hospitalprivado = [], hospitalpublico = [], consultpublico = [], clinicapublica = [], clinicaprivada = [], preepublico = [], preeprivado = [], primpublica = [], primprivada = [], secpublica = [], secprivada = [], prepaprivada = [], prepapublica = [], uniprivada = [], unipublica = []
 let latlng = 0
 let i = 0
@@ -32,7 +32,7 @@ var marcadorHospitalesPub = L.AwesomeMarkers.icon({
 var marcadorConsultorios = L.AwesomeMarkers.icon({
   icon: 'hospital',
   prefix: 'fa',
-  markerColor: 'DarkSalmon',
+  markerColor: 'BlueViolet',
   iconColor: 'white'
 });
 
@@ -46,14 +46,14 @@ var marcadorConsultoriosPub = L.AwesomeMarkers.icon({
 var marcadorClinicas = L.AwesomeMarkers.icon({
   icon: 'hospital',
   prefix: 'fa',
-  markerColor: 'Moccasin',
+  markerColor: 'MediumSpringGreen',
   iconColor: 'white'
 });
 
 var marcadorClinicasPub = L.AwesomeMarkers.icon({
   icon: 'hospital',
   prefix: 'fa',
-  markerColor: 'DarkKhaki',
+  markerColor: 'Olive',
   iconColor: 'white'
 });
 
@@ -278,8 +278,8 @@ function hospitalpriv() {
   var checked = check.checked;
 
   if (checked) {
-    hospitalprivado.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      hospitalprivado.map((point) => {
         rutas2.length = 0;
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
 
@@ -298,16 +298,18 @@ function hospitalpriv() {
           const dataArr = new Set(single);
           let result = [...dataArr];
           markerhp.bindPopup(('<b>' + point.nombre + '</b><br>' + point.nivel + '<br><p style="width: 100%;">' + result + '</p>'), estilopopup).openPopup()
-          var popup = L.popup();
           markerhospitalpriv.push(markerhp)
         }
       })
+      infohospitalpriv.push(markerhospitalpriv.length)
+      
     })
   } else {
     markerhospitalpriv.map((point) => {
       map.removeLayer(point);
     })
   }
+  console.log(infohospitalpriv)
 }
 
 
@@ -316,8 +318,8 @@ function hospitalpub() {
   var check = document.getElementById('publicosalud');
   var checked = check.checked;
   if (checked) {
-    hospitalpublico.map((point) => {
-      colonias2.map((point1) => {
+    colonias2.map((point1) => {
+      hospitalpublico.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
           markerhpub = L.marker([point.latitud, point.longitud], { icon: marcadorHospitalesPub }).addTo(map)
