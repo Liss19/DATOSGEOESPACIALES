@@ -20,114 +20,148 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid p-3">
 
         <div class="row">
-            <div id="map-template" class="col-10">
+            <div id="map-template" class="map-container col-9 my-2 mx-3"></div>
 
-            </div>
 
-            <div id="opciones" class="col">
+            <div id="opciones" class="col filters-container">
                 <!-- <input type="search" name="" id="" autocomplete=""> -->
-                <select name="delegaciones" id="deleg" class="form-select form-select-sm">
-                    <option value="-1">Seleccione uno...</option>
-                    <option value="19.344574,-99.263043">ALVARO OBREGON</option>
-                    <option value="19.4857819,-99.2171045">AZCAPOTZALCO</option>
-                    <option value="19.3804896,-99.1790512">BENITO JUAREZ</option>
-                    <option value="19.3479826,-99.1655411">COYOACAN</option>
-                    <option value="19.3594237,-99.3043521">CUAJIMALPA</option>
-                    <option value="19.4313844,-99.1475206">CUAUHTEMOC</option>
-                    <option value="19.5187603,-99.1839976">GUSTAVO A. MADERO</option>
-                    <option value="19.3989661,-99.113994">IZTACALCO</option>
-                    <option value="19.3428324,-99.1202117">IZTAPALAPA</option>
-                    <option value="19.2754579,-99.3350272">MAGDALENA CONTRERAS</option>
-                    <option value="19.4296549,-99.246706">MIGUEL HIDALGO</option>
-                    <option value="19.1938657,-99.0333644">MILPA ALTA</option>
-                    <option value="19.268839,-99.0746753">TLAHUAC</option>
-                    <option value="19.2007677,-99.3486762">TLALPAN</option>
-                    <option value="19.432053,-99.1223488">VENUZTIANO CARRANZA</option>
-                    <option value="19.2364834,-99.1507603">XOCHIMILCO</option>
-                </select>
-
-                <div class="badge bg-primary text-wrap" style="width: 6rem;">
-                    Radio
+                <div class="filters-header">
+                    <h3>Filtros</h3>
                 </div>
-                <input type="number" value="Radio" name="radio" id="radio" class="form-control">
-                <div class="d-grid gap-2">
-                    <input type="button" value="Calcular" id="boton" onclick="radio()" class="btn btn-success btn-sm">
-                </div><br>
-                Hospital <br>
-                <input class="form-check-input" type="checkbox" value="" id="hosptpriv" onclick="hospitalpriv()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Privado
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="hosptpub" onclick="hospitalpub()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Publico
-                </label> <br><br>
-                Consultorio Medico <br>
-                <input class="form-check-input" type="checkbox" value="" id="consultpriv" onclick="consultpriv()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Privado
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="consultpub" onclick="consultpub()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Publico
-                </label> <br><br>
-                Clinica Medica <br>
-                <input class="form-check-input" type="checkbox" value="" id="clinicatpriv" onclick="clinicapriv()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Privado
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="clinicapub" onclick="clinicapub()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Publico
-                </label> <br><br>
-                Preescolar <br>
-                <input class="form-check-input" type="checkbox" value="" id="hosptpriv" onclick="preepriv()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Privado
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="hosptpub" onclick="preepub()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Publico
-                </label> <br><br>
-                Primaria <br>
-                <input class="form-check-input" type="checkbox" value="" id="hosptpriv" onclick="primpriv()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Privado
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="hosptpub" onclick="primpub()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Publico
-                </label> <br><br>
-                Secundaria <br>
-                <input class="form-check-input" type="checkbox" value="" id="consultpriv" onclick="secpriv()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Privado
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="consultpub" onclick="secpub()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Publico
-                </label> <br><br>
-                Preparatoria <br>
-                <input class="form-check-input" type="checkbox" value="" id="clinicatpriv" onclick="preppriv()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Privado
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="clinicapub" onclick="preppub()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Publico
-                </label> <br><br>
-                Universidad <br>
-                <input class="form-check-input" type="checkbox" value="" id="clinicatpriv" onclick="unipriv()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Privado
-                </label>
-                <input class="form-check-input" type="checkbox" value="" id="clinicapub" onclick="unipub()">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Publico
-                </label> <br><br>
+                <div class="filters-content">
+
+                    <div id="alcaldias">
+                        <label for="delegaciones" class="form-label">Seleccionar Alcaldia</label>
+                        <select name="delegaciones" id="deleg" class="form-select form-select-sm">
+                            <option value="-1">Seleccione uno...</option>
+                            <option value="19.344574,-99.263043">ALVARO OBREGON</option>
+                            <option value="19.4857819,-99.2171045">AZCAPOTZALCO</option>
+                            <option value="19.3804896,-99.1790512">BENITO JUAREZ</option>
+                            <option value="19.3479826,-99.1655411">COYOACAN</option>
+                            <option value="19.3594237,-99.3043521">CUAJIMALPA DE MORELOS</option>
+                            <option value="19.4313844,-99.1475206">CUAUHTEMOC</option>
+                            <option value="19.5187603,-99.1839976">GUSTAVO A. MADERO</option>
+                            <option value="19.3989661,-99.113994">IZTACALCO</option>
+                            <option value="19.3428324,-99.1202117">IZTAPALAPA</option>
+                            <option value="19.2754579,-99.3350272">LA MAGDALENA CONTRERAS</option>
+                            <option value="19.4296549,-99.246706">MIGUEL HIDALGO</option>
+                            <option value="19.1938657,-99.0333644">MILPA ALTA</option>
+                            <option value="19.268839,-99.0746753">TLAHUAC</option>
+                            <option value="19.2007677,-99.3486762">TLALPAN</option>
+                            <option value="19.432053,-99.1223488">VENUZTIANO CARRANZA</option>
+                            <option value="19.2364834,-99.1507603">XOCHIMILCO</option>
+                        </select>
+                        <br>
+                    </div>
+                    <div id="opcionesservicios">
+                        <p class="h5">Sector Salud</p>
+                        <div class="mb-3">
+                            <label for="radiosalud" class="form-label">Radio</label>
+                            <input type="number" value="radiosalud" name="radiosalud" id="radiosalud"
+                                class="form-control">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <input type="button" value="Calcular" id="boton" onclick="radiosalud()"
+                                class="btn btn-success btn-sm">
+                        </div><br>
+
+                        <p class="form-label">Seleccionar servicio</p>
+                        <input class="form-check-input" type="checkbox" value="Hospital" id="Hospital"
+                            onclick="Salud()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Hospital
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="Consultorio" id="Consultorio"
+                            onclick="Salud()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Consultorio Medico
+                        </label> <br>
+                        <input class="form-check-input" type="checkbox" value="Clinica" id="Clinica"
+                            onclick="Salud()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Clinica Medica
+                        </label> <br>
+                        <br>
+
+
+                        <p class="form-label">Seleccionar tipo</p>
+                        <input class="form-check-input" type="checkbox" value="" id="privadosalud"
+                            onclick="PrivadoSalud()" disabled>
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Privado
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="publicosalud"
+                            onclick="PublicoSalud()" disabled>
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Publico
+                        </label> <br><br>
+
+                        <p class="h5">Sector Educación</p>
+                        <div class="mb-3">
+                            <label for="radiosalud" class="form-label">Radio</label>
+                            <input type="number" value="radioeducacion" name="radioeducacion" id="radioeducacion"
+                                class="form-control">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <input type="button" value="Calcular" id="boton2" onclick="radioeducacion()"
+                                class="btn btn-success btn-sm">
+                        </div><br>
+
+                        <label for="educacion" class="form-label">Seleccionar servicio</label>
+                        <input class="form-check-input" type="checkbox" value="Preescolar" id="Preescolar"
+                            onclick="Educacion()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Preescolar
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="Primaria" id="Primaria"
+                            onclick="Educacion()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Primaria
+                        </label> <br>
+                        <input class="form-check-input" type="checkbox" value="Secundaria" id="Secundaria"
+                            onclick="Educacion()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Secundaria 
+                        </label> <br>
+                        <input class="form-check-input" type="checkbox" value="Preparatoria" id="Preparatoria"
+                            onclick="Educacion()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Preparatoria 
+                        </label> <br>
+                        <input class="form-check-input" type="checkbox" value="Universidad" id="Universidad"
+                            onclick="Educacion()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Universidad 
+                        </label> <br>
+                        <br>
+                        <p class="form-label">Seleccionar tipo</p>
+                        <input class="form-check-input" type="checkbox" value="" id="privadoeducacion"
+                            onclick="PrivadoEducacion()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Privado
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="publicoeducacion"
+                            onclick="PublicoEducacion()">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Publico
+                        </label> <br><br>
+
+                        <input class="form-check-input" type="checkbox" value="" id="rutas">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Rutas de transporte
+                        </label> <br><br>
+                        <input type="button" value="Crear Archivo" id="boton" onclick="datosgenerales()"
+                            class="btn btn-success btn-sm"><br><br>
+                    </div>
+
+                    <a href="../../datosgeoespaciales.json" download="DatosGenerales">
+                        Descargar Archivo
+                    </a>
+                </div>
+
 
 
             </div>
@@ -143,8 +177,9 @@
         crossorigin=""></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <script src="/js/colonias.js"></script>
+    <!--<script src="/js/colonias.js"></script>-->
     <script src="/js/rutas.js"></script>
+    <script src="/js/paradas.js"></script>
     <script src="/js/main.js"></script>
 </body>
 

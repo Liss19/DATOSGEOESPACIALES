@@ -5,6 +5,8 @@ const path = require('path');
 
 //inicializaciones
 const app = express();
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
 
 //configuracion de la vista
 app.engine('ejs',engine);
@@ -12,7 +14,7 @@ app.set('view engine','ejs');
 app.set('views', 'C:/Users/Gambo/Desktop/DATOSGEOESPACIALES/src/vista');
 
 // rutas
-app.use(require('../rutas/index'));
+app.use(require('./rutas/index'));
 
 
 //archivos estaticos

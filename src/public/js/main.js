@@ -1,538 +1,129 @@
 // user glocate  pass SRQncgBTq9I5kLjq
 
-var marker, marcador
-var markercolonias = []
-var markerconsultpriv = [], markerhospitalpriv = [], markerhospitalpub = [], infohospitalpriv = []
-var markercp, markerhp, markerhpub
-/*const colonias = [{
-  "id": 1,
-  "nombre": "LOMAS DE CHAPULTEPEC",
-  "lat": 19.42284112,
-  "long": -99.21579358,
-  "cve_alc": 15,
-  "alcaldia": "MIGUEL HIDALGO"
-},
-{
-  "id": 2,
-  "nombre": "LOMAS DE REFORMA (LOMAS DE CHAPULTEPEC)",
-  "lat": 19.41061589,
-  "long": -99.22624873,
-  "cve_alc": 15,
-  "alcaldia": "MIGUEL HIDALGO"
-},
-{
-  "id": 3,
-  "nombre": "DEL BOSQUE (POLANCO)",
-  "lat": 19.43421892,
-  "long": -99.20940375,
-  "cve_alc": 15,
-  "alcaldia": "MIGUEL HIDALGO"
-},
-{
-  "id": 4,
-  "nombre": "PEDREGAL DE SANTA URSULA I",
-  "lat": 19.31486224,
-  "long": -99.14779545,
-  "cve_alc": 2,
-  "alcaldia": "COYOACAN"
-},
-{
-  "id": 5,
-  "nombre": "AJUSCO I",
-  "lat": 19.32457112,
-  "long": -99.15616022,
-  "cve_alc": 2,
-  "alcaldia": "COYOACAN"
-},
-{
-  "id": 6,
-  "nombre": "VISTAS DEL MAUREL (U HAB)",
-  "lat": 19.30530037,
-  "long": -99.17343059,
-  "cve_alc": 2,
-  "alcaldia": "COYOACAN"
-},
-{
-  "id": 7,
-  "nombre": "IGNACIO ZARAGOZA I",
-  "lat": 19.41311197,
-  "long": -99.09469923,
-  "cve_alc": 16,
-  "alcaldia": "VENUSTIANO CARRANZA"
-},
-{
-  "id": 8,
-  "nombre": "CENTRO II",
-  "lat": 19.42571443,
-  "long": -99.12265977,
-  "cve_alc": 16,
-  "alcaldia": "VENUSTIANO CARRANZA"
-},
-{
-  "id": 9,
-  "nombre": "VALENTIN GOMEZ FARIAS",
-  "lat": 19.41618441,
-  "long": -99.09357531,
-  "cve_alc": 16,
-  "alcaldia": "VENUSTIANO CARRANZA"
-},
-{
-  "id": 10,
-  "nombre": "MORELOS II",
-  "lat": 19.44155602,
-  "long": -99.11835494,
-  "cve_alc": 16,
-  "alcaldia": "VENUSTIANO CARRANZA"
-},
-{
-  "id": 11,
-  "nombre": "NICOLAS BRAVO",
-  "lat": 19.45389814,
-  "long": -99.12315335,
-  "cve_alc": 16,
-  "alcaldia": "VENUSTIANO CARRANZA"
-},
-{
-  "id": 12,
-  "nombre": "5 DE MAYO",
-  "lat": 19.44845879,
-  "long": -99.19990957,
-  "cve_alc": 15,
-  "alcaldia": "MIGUEL HIDALGO"
-},
-{
-  "id": 13,
-  "nombre": "PLUTARCO ELIAS CALLES",
-  "lat": 19.45483969,
-  "long": -99.16918946,
-  "cve_alc": 15,
-  "alcaldia": "MIGUEL HIDALGO"
-},
-{
-  "id": 14,
-  "nombre": "CAMPESTRE COYOACAN (FRACC)",
-  "lat": 19.30882288,
-  "long": -99.1170551,
-  "cve_alc": 2,
-  "alcaldia": "COYOACAN"
-},
-{
-  "id": 15,
-  "nombre": "JANITZIO",
-  "lat": 19.44750725,
-  "long": -99.11743224,
-  "cve_alc": 16,
-  "alcaldia": "VENUSTIANO CARRANZA"
-}]*/
-const consultprivado = [{
-  "id": 1,
-  "nombre": "ACERCATE FEM",
-  "nivel": "Consultorios de medicina general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.47645897,
-  "longitud": -99.14305386
-},
-{
-  "id": 2,
-  "nombre": "ACUPUNTURA CHINA",
-  "nivel": "Consultorios de medicina general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.28887655,
-  "longitud": -99.12626488
-},
-{
-  "id": 3,
-  "nombre": "ADMINISTRACION CONSULTORIOS TORRE 3",
-  "nivel": "Consultorios de medicina general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.29651061,
-  "longitud": -99.1605306
-},
-{
-  "id": 4,
-  "nombre": "ADN MEDICA PHARMA",
-  "nivel": "Consultorios de medicina general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.38014385,
-  "longitud": -99.24347078
-},
-{
-  "id": 5,
-  "nombre": "AEROMEDICINA INTEGRAL CDMX",
-  "nivel": "Consultorios de medicina general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.41629363,
-  "longitud": -99.08553318
-},
-{
-  "id": 6,
-  "nombre": "AFEECI",
-  "nivel": "Consultorios de medicina general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.40063538,
-  "longitud": -99.18696167
-},
-{
-  "id": 7,
-  "nombre": "ALBERTO SANCHEZ GARCIA",
-  "nivel": "Consultorios de medicina general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.49407512,
-  "longitud": -99.12732537
-}]
 
-const hospitalprivado = [{
-  "id": 3422,
-  "nombre": "CLINICA HOSPITAL LUIS PASTEUR",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.49605313,
-  "longitud": -99.09120967
-},
-{
-  "id": 3423,
-  "nombre": "CLINICA LONDRES",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.42179268,
-  "longitud": -99.15696791
-},
-{
-  "id": 3424,
-  "nombre": "CLINICA MADRE TERESA DUE�AS AC",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.333847,
-  "longitud": -99.23395646
-},
-{
-  "id": 3425,
-  "nombre": "CLINICA MEDICA EDYBE",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.42226356,
-  "longitud": -99.11201421
-},
-{
-  "id": 3426,
-  "nombre": "CLINICA MEDICA HUMANITAL",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.25711785,
-  "longitud": -99.10995307
-},
-{
-  "id": 3427,
-  "nombre": "CLINICA MEDICA PAOLA",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.30744788,
-  "longitud": -99.08440588
-},
-{
-  "id": 3428,
-  "nombre": "CLINICA MEDICA SANTA ROSA.",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.40422096,
-  "longitud": -99.05788504
-},
-{
-  "id": 3429,
-  "nombre": "CLINICA MEDICA UMI",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.42032062,
-  "longitud": -99.15323163
-},
-{
-  "id": 3430,
-  "nombre": "CLINICA NUESTRA SE�ORA DEL CARMEN",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.4814988,
-  "longitud": -99.18919324
-},
-{
-  "id": 3431,
-  "nombre": "CLINICA ORIENTAL",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.39494972,
-  "longitud": -99.07063605
-},
-{
-  "id": 3432,
-  "nombre": "CLINICA RECREA MEDICINA REPRODUCTIVA",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.49227842,
-  "longitud": -99.13209495
-},
-{
-  "id": 3433,
-  "nombre": "CORPORATIVO JARDIN",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.42178743,
-  "longitud": -99.10688948
-},
-{
-  "id": 3434,
-  "nombre": "CRUZ ROJA MEXICANA",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.43853255,
-  "longitud": -99.20892246
-},
-{
-  "id": 3435,
-  "nombre": "DIRECCION Y ADMINISTRACION DE SERVICIOS MEDICOS GMT",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.37251078,
-  "longitud": -99.17504129
-},
-{
-  "id": 3436,
-  "nombre": "ECOFEM",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.34888508,
-  "longitud": -99.01568911
-},
-{
-  "id": 3437,
-  "nombre": "FARMA ATENCION MEDICA",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.28659379,
-  "longitud": -99.1750994
-},
-{
-  "id": 3438,
-  "nombre": "GRUPO MEDICO PEDIATRICO",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.42411082,
-  "longitud": -99.20544055
-},
-{
-  "id": 3439,
-  "nombre": "GRUPO MEDICO SANTISIMA TRINIDAD",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.32656872,
-  "longitud": -99.07532174
-},
-{
-  "id": 3440,
-  "nombre": "HOSPITAL ABC",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.40027825,
-  "longitud": -99.20434683
-},
-{
-  "id": 3441,
-  "nombre": "HOSPITAL ABC",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.35827571,
-  "longitud": -99.28263355
-},
-{
-  "id": 3442,
-  "nombre": "HOSPITAL ALERTA MEDICA INTERNACIONAL",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.39220331,
-  "longitud": -99.18386873
-},
-{
-  "id": 3443,
-  "nombre": "HOSPITAL ANGELES ACOXPA",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.29774935,
-  "longitud": -99.13751185
-},
-{
-  "id": 3444,
-  "nombre": "HOSPITAL ANGELES LINDAVISTA",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.48641045,
-  "longitud": -99.12982745
-},
-{
-  "id": 3445,
-  "nombre": "HOSPITAL BOUTIQUE RIOBAMBA",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.49509865,
-  "longitud": -99.12343819
-},
-{
-  "id": 3446,
-  "nombre": "HOSPITAL CAMI",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.42407246,
-  "longitud": -99.1049721
-},
-{
-  "id": 3447,
-  "nombre": "HOSPITAL CHURUBUSCO",
-  "nivel": "Hospital general privado",
-  "tipo": "unidad de salud privada",
-  "latitud": 19.36157536,
-  "longitud": -99.12133398
-}]
-const hospitalpublico = [{
-  "id": 3655,
-  "nombre": "UMAE HOSPITAL DE ONCOLOGIA IMSS",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.40771842,
-  "longitud": -99.1550294
-},
-{
-  "id": 3656,
-  "nombre": "UNIDAD DE MEDICINA FAMILIAR 11 PERALVILLO",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.46847065,
-  "longitud": -99.12986462
-},
-{
-  "id": 3657,
-  "nombre": "UNIDAD DE MEDICINA FAMILIAR 31",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.35179751,
-  "longitud": -99.0771163
-},
-{
-  "id": 3658,
-  "nombre": "UNIDAD DE MEDICINA FAMILIAR INSTITUTO MEXICANO DEL SEGURO SOCIAL UMF CON UMAA 162",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.30653963,
-  "longitud": -99.05946036
-},
-{
-  "id": 3659,
-  "nombre": "UNIDAD DE MEDICINA FAMILIAR INTEGRACION LATINOAMERICANA",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.33745135,
-  "longitud": -99.17862245
-},
-{
-  "id": 3660,
-  "nombre": "UNIDAD DE MEDICINA FAMILIAR N. 22",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.33123855,
-  "longitud": -99.21788916
-},
-{
-  "id": 3661,
-  "nombre": "UNIDAD DE MEDICINA FAMILIAR NO 41",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.48093408,
-  "longitud": -99.13338206
-},
-{
-  "id": 3662,
-  "nombre": "UNIDAD DE MEDICINA FAMILIAR NUMERO 43",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.35546545,
-  "longitud": -99.08509859
-},
-{
-  "id": 3663,
-  "nombre": "UNIDAD DE MEDICINA FAMILIAR UMA 42",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.36545671,
-  "longitud": -99.29283545
-},
-{
-  "id": 3664,
-  "nombre": "UNIDAD MEDICA DE ALTA ESPECIALIDAD HOSPITAL DE PEDIATRIA CENTRO MEDICO SIGL",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.40665529,
-  "longitud": -99.15392067
-},
-{
-  "id": 3665,
-  "nombre": "UNIDAD MEDICA DE ALTA ESPECIALIDAD HOSPITAL DE TRAUMATOLOGIA DR VICTORIO DE LA FUENTE NARVAEZ",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.48521024,
-  "longitud": -99.1370821
-},
-{
-  "id": 3666,
-  "nombre": "UNIDAD MEDICA DE LA COMUNIDAD DE TRATAMIENTO ESPECIALIZADO PARA ADOLESCENTES",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.29233206,
-  "longitud": -99.16788267
-},
-{
-  "id": 3667,
-  "nombre": "UNIDAD MEDICA DEL RECLUSORIO PREVENTIDO VARONIL ORIENTE",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.32110233,
-  "longitud": -99.06880392
-},
-{
-  "id": 3668,
-  "nombre": "UNIDAD MEDICA LA COLMENA",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.37095951,
-  "longitud": -98.99879618
-},
-{
-  "id": 3669,
-  "nombre": "UNIDAD MEDICO QUIRURGICA JUAREZ MEXICO",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.42517863,
-  "longitud": -99.12900742
-},
-{
-  "id": 3670,
-  "nombre": "UNIDADES DE SALUD DE DETECCION OPORTUNA UNIDAD MIXCOAC",
-  "nivel": "Hospital general publico",
-  "tipo": "unidad de salud publica",
-  "latitud": 19.37616558,
-  "longitud": -99.18760371
-}]
+
+//var marker, marcador
+var markercolonias = [], colonias2 = [], colonias1 = [], escuelas1 = []
+var markerconsultpriv = [], markerhospitalpriv = [], markerhospitalpub = [], markerconsultpub = [], markerclinicapriv = [], markerclinicapub = [], markerpreescolarpriv = [], markerpreescolarpub = [], markerprimariapriv = [], markerprimariapub = [], markersecundariapriv = [], markersecundariapub = [], markerpreparatoriapriv = [], markerpreparatoriapub = [], markeruniversidadpriv = [], markeruniversidadpub = []
+var markercp, markerhp, markerhpub, markercpub, markerclinp, markerclinpub, markerpreep, markerpreepub, markerprimp, markerprimpub, markersecp, markersecpub, markerprepap, markerprepapub, markerunip, markerunipub
+var infogeneral = []
+var consultprivado = [], hospitalprivado = [], hospitalpublico = [], consultpublico = [], clinicapublica = [], clinicaprivada = [], preepublico = [], preeprivado = [], primpublica = [], primprivada = [], secpublica = [], secprivada = [], prepaprivada = [], prepapublica = [], uniprivada = [], unipublica = []
 let latlng = 0
 let i = 0
+var distance, distance2, rutas2 = [], rutasremp = [];
 
 const map = L.map('map-template').setView([19.42847, -99.12766], 15)
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
 
-var marcadorEscuelas = L.AwesomeMarkers.icon({
-  icon: 'school',
-  prefix: 'fa',
-  markerColor: 'red',
-  iconColor: 'white'
-});
 var marcadorHospitales = L.AwesomeMarkers.icon({
   icon: 'hospital',
   prefix: 'fa',
   markerColor: 'green',
+  iconColor: 'white'
+});
+
+var marcadorHospitalesPub = L.AwesomeMarkers.icon({
+  icon: 'hospital',
+  prefix: 'fa',
+  markerColor: 'red',
+  iconColor: 'white'
+});
+
+var marcadorConsultorios = L.AwesomeMarkers.icon({
+  icon: 'circle-h',
+  prefix: 'fa',
+  markerColor: 'green',
+  iconColor: 'white'
+});
+
+var marcadorConsultoriosPub = L.AwesomeMarkers.icon({
+  icon: 'circle-h',
+  prefix: 'fa',
+  markerColor: 'red',
+  iconColor: 'white'
+});
+
+var marcadorClinicas = L.AwesomeMarkers.icon({
+  icon: 'house-medical',
+  prefix: 'fa',
+  markerColor: 'green',
+  iconColor: 'white'
+});
+
+var marcadorClinicasPub = L.AwesomeMarkers.icon({
+  icon: 'house-medical',
+  prefix: 'fa',
+  markerColor: 'red',
+  iconColor: 'white'
+});
+
+var marcadorPreescolar = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'purple',
+  iconColor: 'white'
+});
+
+var marcadorPreescolarPub = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'Pink',
+  iconColor: 'white'
+});
+
+var marcadorPrimarias = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'purple',
+  iconColor: 'white'
+});
+
+var marcadorPrimariasPub = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'Crimson',
+  iconColor: 'white'
+});
+
+var marcadorSecundarias = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'Coral',
+  iconColor: 'white'
+});
+
+var marcadorSecundariasPub = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'Tomato',
+  iconColor: 'white'
+});
+
+var marcadorPreparatorias = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'DarkOrangel',
+  iconColor: 'white'
+});
+
+var marcadorPreparatoriasPub = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'Gold',
+  iconColor: 'white'
+});
+
+var marcadorUniversidades = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'DarkCyan',
+  iconColor: 'white'
+});
+
+var marcadorUniversidadesPub = L.AwesomeMarkers.icon({
+  icon: 'school',
+  prefix: 'fa',
+  markerColor: 'Teal',
   iconColor: 'white'
 });
 
@@ -542,34 +133,8 @@ var marcadorColonias = L.AwesomeMarkers.icon({
   markerColor: 'black',
   iconColor: 'white'
 });
-// const travelTimes = [300, 600, 900, 1200, 1500, 1800];
-// const center =[19.42847, -99.12766]
-// const options = {
-//   travelType: 'bike',
-//   travelEdgeWeights: travelTimes,
-//   maxEdgeWeight: 1800,
-//   edgeWeight: 'time',
-//   serializer: 'json'
-// };
-// const sources = [{ id: 0, lat: center[0], lng: center[1] }];
 
-// // Add markers for the sources on the map.
-// sources.forEach(source => {
-//   L.marker([source.lat, source.lng]).addTo(map)
-// });
-
-// // define the polygon overlay
-// const polygonOverlayLayer = new tgm.leaflet.TgmLeafletPolygonOverlay({ strokeWidth: 20 });
-// polygonOverlayLayer.addTo(map);
-
-// // get the polygons
-// const polygons = await client.polygons.fetch(sources, options);
-// // calculate bounding box for polygons
-// const bounds = polygons.getMaxBounds();
-// // add polygons to overlay
-// polygonOverlayLayer.setData(polygons);
-// // zoom to the polygon bounds
-// map.fitBounds(new L.latLngBounds(bounds.northEast, bounds.southWest));
+var estilopopup = { 'maxWitdth': '300' }
 
 //configurar popup
 function popup(feature, layer) {
@@ -587,23 +152,154 @@ var rutasJS = L.geoJSON(rutas, {
   weight: 1
 }).addTo(map);
 
+// Datos de MongoDB
+colonias()
+async function colonias() {
+  colonias1 = await fetch('http://localhost:3000/obtenerdatoscolonias') // 1
+    .then(response => response.json()) // 2
+}
 
+hospitalesprivados()
+async function hospitalesprivados() {
+  hospitalprivado = await fetch('http://localhost:3000/obtenerdatoshospitalprivado') // 1
+    .then(response => response.json()) // 2
+  console.log(hospitalprivado)
+}
 
+hospitalespublicos()
+async function hospitalespublicos() {
+  hospitalpublico = await fetch('http://localhost:3000/obtenerdatoshospitalpublico') // 1
+    .then(response => response.json()) // 2
+  console.log(hospitalpublico)
+}
 
+consultoriosprivados()
+async function consultoriosprivados() {
+  consultprivado = await fetch('http://localhost:3000/obtenerdatosconsultorioprivado') // 1
+    .then(response => response.json()) // 2
+  console.log(consultprivado)
+}
 
+consultoriospublicos()
+async function consultoriospublicos() {
+  consultpublico = await fetch('http://localhost:3000/obtenerdatosconsultoriopublico') // 1
+    .then(response => response.json()) // 2
+  console.log(consultpublico)
+}
+
+clinicasprivadas()
+async function clinicasprivadas() {
+  clinicaprivada = await fetch('http://localhost:3000/obtenerdatosclinicaprivada') // 1
+    .then(response => response.json()) // 2
+  console.log(clinicaprivada)
+}
+
+clinicaspublicas()
+async function clinicaspublicas() {
+  clinicapublica = await fetch('http://localhost:3000/obtenerdatosclinicapublica') // 1
+    .then(response => response.json()) // 2
+  console.log(clinicapublica)
+}
+
+preescolarprivada()
+async function preescolarprivada() {
+  preeprivado = await fetch('http://localhost:3000/obtenerdatospreescolarprivada') // 1
+    .then(response => response.json()) // 2
+  console.log(preeprivado)
+}
+
+preescolarpublica()
+async function preescolarpublica() {
+  preepublico = await fetch('http://localhost:3000/obtenerdatospreescolarpublica') // 1
+    .then(response => response.json()) // 2
+  console.log(preepublico)
+}
+
+primariaprivada()
+async function primariaprivada() {
+  primprivada = await fetch('http://localhost:3000/obtenerdatosprimariaprivada') // 1
+    .then(response => response.json()) // 2
+  console.log(primprivada)
+}
+
+primariapublica()
+async function primariapublica() {
+  primpublica = await fetch('http://localhost:3000/obtenerdatosprimariapublica') // 1
+    .then(response => response.json()) // 2
+  console.log(primpublica)
+}
+
+secundariaprivada()
+async function secundariaprivada() {
+  secprivada = await fetch('http://localhost:3000/obtenerdatossecundariaprivada') // 1
+    .then(response => response.json()) // 2
+  console.log(secprivada)
+}
+
+secundariapublica()
+async function secundariapublica() {
+  secpublica = await fetch('http://localhost:3000/obtenerdatossecundariapublica') // 1
+    .then(response => response.json()) // 2
+  console.log(secpublica)
+}
+
+preparatoriaprivada()
+async function preparatoriaprivada() {
+  prepaprivada = await fetch('http://localhost:3000/obtenerdatospreparatoriaprivada') // 1
+    .then(response => response.json()) // 2
+  console.log(prepaprivada)
+}
+
+preparatoriapublica()
+async function preparatoriapublica() {
+  prepapublica = await fetch('http://localhost:3000/obtenerdatospreparatoriapublica') // 1
+    .then(response => response.json()) // 2
+  console.log(prepapublica)
+}
+
+universidadprivada()
+async function universidadprivada() {
+  uniprivada = await fetch('http://localhost:3000/obtenerdatosuniversidadprivada') // 1
+    .then(response => response.json()) // 2
+  console.log(uniprivada)
+}
+
+universidadpublica()
+async function universidadpublica() {
+  unipublica = await fetch('http://localhost:3000/obtenerdatosuniversidadpublica') // 1
+    .then(response => response.json()) // 2
+  console.log(unipublica)
+}
+
+// Creacion de Marcadores
 function hospitalpriv() {
-  const radius = document.getElementById('radio').value
-  var check = document.getElementById('hosptpriv');
+  const radius = document.getElementById('radiosalud').value
+  var check = document.getElementById('privadosalud');
   var checked = check.checked;
+
   if (checked) {
     hospitalprivado.map((point) => {
-      colonias.map((point1) => {
+      colonias2.map((point1) => {
+        rutas2.length = 0;
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+
         if (distance <= radius) {
           markerhp = L.marker([point.latitud, point.longitud], { icon: marcadorHospitales }).addTo(map)
-          markerhp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 500) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          markerhp.bindPopup(('<b>' + point.nombre + '</b><br>' + point.nivel + '<br><p style="width: 100%;">' + result + '</p>'), estilopopup).openPopup()
+          var popup = L.popup();
           markerhospitalpriv.push(markerhp)
-          infohospitalpriv.push({ "nombre": point.nombre, "nivel": point.nivel, "tipo": point.tipo, "nombrecolonia": point1.nombre, "alcaldia": point1.alcaldia })
         }
       })
     })
@@ -611,30 +307,37 @@ function hospitalpriv() {
     markerhospitalpriv.map((point) => {
       map.removeLayer(point);
     })
-    infohospitalpriv.length = 0;
-
   }
-  console.log(infohospitalpriv);
 }
 
+
 function hospitalpub() {
-  const radius = document.getElementById('radio').value
-  var check = document.getElementById('hosptpub');
+  const radius = document.getElementById('radiosalud').value
+  var check = document.getElementById('publicosalud');
   var checked = check.checked;
   if (checked) {
     hospitalpublico.map((point) => {
-      colonias.map((point1) => {
+      colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markerhpub = L.marker([point.latitud, point.longitud], { icon: marcadorHospitales }).addTo(map)
-          markerhpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
+          markerhpub = L.marker([point.latitud, point.longitud], { icon: marcadorHospitalesPub }).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerhpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerhospitalpub.push(markerhpub)
         }
       })
-      // markerhp=L.marker([point.latitud, point.longitud]).addTo(map)
-      // markerhp.bindPopup(point.nombre+'<br> '+point.nivel).openPopup()
-      // markerhospitalpriv.push(markerhp)
-
     })
   } else {
     markerhospitalpub.map((point) => {
@@ -645,23 +348,32 @@ function hospitalpub() {
 }
 
 function consultpriv() {
-  const radius = document.getElementById('radio').value
-  var check = document.getElementById('consultpriv');
+  const radius = document.getElementById('radiosalud').value
+  var check = document.getElementById('privadosalud');
   var checked = check.checked;
   if (checked) {
     consultprivado.map((point) => {
-      colonias.map((point1) => {
+      colonias2.map((point1) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
         if (distance <= radius) {
-          markercp = L.marker([point.latitud, point.longitud]).addTo(map)
-          markercp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
+          markercp = L.marker([point.latitud, point.longitud],{icon: marcadorConsultorios}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markercp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerconsultpriv.push(markercp)
         }
       })
-      // markercp=L.marker([point.latitud, point.longitud]).addTo(map)
-      // markercp.bindPopup(point.nombre+'<br> '+point.nivel).openPopup()
-      // markerconsultpriv.push(markercp)
-
     })
   } else {
     markerconsultpriv.map((point) => {
@@ -670,7 +382,477 @@ function consultpriv() {
 
   }
 }
-console.table(L)
+
+function consultpub() {
+  const radius = document.getElementById('radiosalud').value
+  var check = document.getElementById('publicosalud');
+  var checked = check.checked;
+  if (checked) {
+    consultpublico.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markercpub = L.marker([point.latitud, point.longitud],{icon: marcadorConsultoriosPub}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markercpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerconsultpub.push(markercp)
+        }
+      })
+    })
+  } else {
+    markerconsultpub.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function clinicapriv() {
+  const radius = document.getElementById('radiosalud').value
+  var check = document.getElementById('privadosalud');
+  var checked = check.checked;
+  if (checked) {
+    clinicaprivada.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markerclinp = L.marker([point.latitud, point.longitud],{icon: marcadorClinicas}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerclinp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerclinicapriv.push(markerclinp)
+        }
+      })
+    })
+  } else {
+    markerclinicapriv.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function clinicapub() {
+  const radius = document.getElementById('radiosalud').value
+  var check = document.getElementById('publicosalud');
+  var checked = check.checked;
+  if (checked) {
+    clinicapublica.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markerclinpub = L.marker([point.latitud, point.longitud],{icon: marcadorClinicasPub}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerclinpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerclinicapub.push(markerclinpub)
+        }
+      })
+    })
+  } else {
+    markerclinicapub.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function preepriv() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('privadoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    preeprivado.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markerpreep = L.marker([point.latitud, point.longitud],{icon: marcadorPreescolar}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerpreep.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerpreescolarpriv.push(markerpreep)
+        }
+      })
+    })
+  } else {
+    markerpreescolarpriv.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function preepub() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('publicoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    preepublico.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markerpreepub = L.marker([point.latitud, point.longitud],{icon: marcadorPreescolarPub}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerpreepub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerpreescolarpub.push(markerpreepub)
+        }
+      })
+    })
+  } else {
+    markerpreescolarpub.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function primpriv() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('privadoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    primprivada.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markerprimp = L.marker([point.latitud, point.longitud],{icon: marcadorPrimarias}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerprimp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerprimariapriv.push(markerprimp)
+        }
+      })
+    })
+  } else {
+    markerprimariapriv.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function primpub() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('publicoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    primpublica.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markerprimpub = L.marker([point.latitud, point.longitud],{icon: marcadorPrimariasPub}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerprimpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerprimariapub.push(markerprimpub)
+        }
+      })
+    })
+  } else {
+    markerprimariapub.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function secpriv() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('privadoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    secprivada.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markersecp = L.marker([point.latitud, point.longitud],{icon: marcadorSecundarias}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markersecp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markersecundariapriv.push(markersecp)
+        }
+      })
+    })
+  } else {
+    markersecundariapriv.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function secpub() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('publicoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    secpublica.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markersecpub = L.marker([point.latitud, point.longitud],{icon: marcadorSecundariasPub}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markersecpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markersecundariapub.push(markersecpub)
+        }
+      })
+    })
+  } else {
+    markersecundariapub.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function prepapriv() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('privadoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    prepaprivada.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+
+          markerprepap = L.marker([point.latitud, point.longitud],{icon: marcadorPreparatorias}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerprepap.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerpreparatoriapriv.push(markerprepap)
+        }
+      })
+    })
+  } else {
+    markerpreparatoriapriv.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function prepapub() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('publicoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    prepapublica.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markerprepapub = L.marker([point.latitud, point.longitud],{icon: marcadorPreparatoriasPub}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerprepapub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerpreparatoriapub.push(markerprepapub)
+        }
+      })
+    })
+  } else {
+    markerpreparatoriapub.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function unipriv() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('privadoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    uniprivada.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markerunip = L.marker([point.latitud, point.longitud],{icon: marcadorUniversidades}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerunip.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markeruniversidadpriv.push(markerunip)
+        }
+      })
+    })
+  } else {
+    markeruniversidadpriv.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+function unipub() {
+  const radius = document.getElementById('radioeducacion').value
+  var check = document.getElementById('publicoeducacion');
+  var checked = check.checked;
+  if (checked) {
+    unipublica.map((point) => {
+      colonias2.map((point1) => {
+        distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
+        if (distance <= radius) {
+          markerunipub = L.marker([point.latitud, point.longitud],{icon: marcadorUniversidadesPub}).addTo(map)
+          paradas.map((punto) => {
+            punto.features.map((punto2) => {
+              distance2 = map.distance([punto2.geometry.coordinates[1], punto2.geometry.coordinates[0]], [point.latitud, point.longitud]);
+              if (distance2 <= 200) {
+                rutas2.push(punto2.properties.route_ids);
+              }
+            })
+          })
+          let single = [].concat(...rutas2);
+          console.log(single)
+          const dataArr = new Set(single);
+          let result = [...dataArr];
+          console.log(result);
+          markerunipub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markeruniversidadpub.push(markerunipub)
+        }
+      })
+    })
+  } else {
+    markeruniversidadpub.map((point) => {
+      map.removeLayer(point);
+    })
+
+  }
+}
+
+//console.table(L)
 
 /*map.on('click', (ev) => {
     if (count==0){
@@ -686,29 +868,205 @@ console.table(L)
     console.log(count);
 })*/
 
+function Salud() {
+  var check = document.getElementById('Hospital');
+  var check2 = document.getElementById('Clinica');
+  var check3 = document.getElementById('Consultorio');
+  var checked = check.checked;
+  var checked2 = check2.checked;
+  var checked3 = check3.checked;
 
+  if (checked || checked2 || checked3) {
+    document.getElementById("publicosalud").removeAttribute('disabled');
+    document.getElementById("privadosalud").removeAttribute('disabled');
+  } else {
+    document.getElementById("publicosalud").setAttribute('disabled', 'disabled');
+    document.getElementById("privadosalud").setAttribute('disabled', 'disabled');
+  }
+}
 
-function radio() {
-  const radius = document.getElementById('radio').value
-  colonias.map((point) => {
-    const latlng = [point.lat, point.long]
-    L.circle(latlng, { color: 'red', fillColor: '#f03', fillOpacity: 0.5, radius: radius }).addTo(map)
+function Educacion() {
+  var check = document.getElementById('Preescolar');
+  var check2 = document.getElementById('Primaria');
+  var check3 = document.getElementById('Secundaria');
+  var check4 = document.getElementById('Preparatoria');
+  var check5 = document.getElementById('Universidad');
+  var checked = check.checked;
+  var checked2 = check2.checked;
+  var checked3 = check3.checked;
+  var checked4 = check4.checked;
+  var checked5 = check5.checked;
+
+  if (checked || checked2 || checked3 || checked4 || checked5) {
+    document.getElementById("publicoeducacion").removeAttribute('disabled');
+    document.getElementById("privadoeducacion").removeAttribute('disabled');
+  } else {
+    document.getElementById("publicoeducacion").setAttribute('disabled', 'disabled');
+    document.getElementById("privadoeducacion").setAttribute('disabled', 'disabled');
+  }
+}
+
+function PrivadoSalud() {
+  var check = document.getElementById('Hospital');
+  var check2 = document.getElementById('Clinica');
+  var check3 = document.getElementById('Consultorio');
+  var checked = check.checked;
+  var checked2 = check2.checked;
+  var checked3 = check3.checked;
+  if (checked) {
+    hospitalpriv()
+  }
+  if (checked2) {
+    clinicapriv()
+  }
+  if (checked3) {
+    consultpriv()
+  }
+}
+
+function PublicoSalud() {
+  var check = document.getElementById('Hospital');
+  var check2 = document.getElementById('Clinica');
+  var check3 = document.getElementById('Consultorio');
+  var checked = check.checked;
+  var checked2 = check2.checked;
+  var checked3 = check3.checked;
+  if (checked) {
+    hospitalpub()
+  }
+  if (checked2) {
+    clinicapub()
+  }
+  if (checked3) {
+    consultpub()
+  }
+}
+
+function PrivadoEducacion() {
+  var check = document.getElementById('Preescolar');
+  var check2 = document.getElementById('Primaria');
+  var check3 = document.getElementById('Secundaria');
+  var check4 = document.getElementById('Preparatoria');
+  var check5 = document.getElementById('Universidad');
+  var checked = check.checked;
+  var checked2 = check2.checked;
+  var checked3 = check3.checked;
+  var checked4 = check4.checked;
+  var checked5 = check5.checked;
+  if (checked) {
+    preepriv()
+  }
+  if (checked2) {
+    primpriv()
+  }
+  if (checked3) {
+    secpriv()
+  }
+  if (checked4) {
+    prepapriv()
+  }
+  if (checked5) {
+    unipriv()
+  }
+}
+
+function PublicoEducacion() {
+  var check = document.getElementById('Preescolar');
+  var check2 = document.getElementById('Primaria');
+  var check3 = document.getElementById('Secundaria');
+  var check4 = document.getElementById('Preparatoria');
+  var check5 = document.getElementById('Universidad');
+  var checked = check.checked;
+  var checked2 = check2.checked;
+  var checked3 = check3.checked;
+  var checked4 = check4.checked;
+  var checked5 = check5.checked;
+  if (checked) {
+    preepub()
+  }
+  if (checked2) {
+    primpub()
+  }
+  if (checked3) {
+    secpub()
+  }
+  if (checked4) {
+    prepapub()
+  }
+  if (checked5) {
+    unipub()
+  }
+}
+
+function radiosalud() {
+  const radius = document.getElementById('radiosalud').value
+  markercolonias.map((point) => {
+
+    L.circle(point._latlng, { color: 'hotpink', fillColor: 'palevioletred', fillOpacity: 0.5, radius: radius }).addTo(map)
+
+  })
+}
+function radioeducacion() {
+  const radius = document.getElementById('radioeducacion').value
+  markercolonias.map((point) => {
+
+    L.circle(point._latlng, { color: 'DarkSlateBlue', fillColor: 'MediumSlateBlue', fillOpacity: 0.5, radius: radius }).addTo(map)
 
   })
 }
 
 document.getElementById('deleg').addEventListener('change', function (e) {
+
   let coords = e.target.value.split(",")
   map.flyTo(coords, 15)
-
+  markercolonias.map((point) => {
+    map.removeLayer(point);
+  })
+  markercolonias.length = 0;
+  colonias2.length = 0;
   var combo = document.getElementById("deleg");
   var selected = combo.options[combo.selectedIndex].text;
-  colonias.map((point) => {
+  colonias1.map((point) => {
     if (selected == point.alcaldia) {
       marker = L.marker([point.lat, point.long], { icon: marcadorColonias }).addTo(map)
       marker.bindPopup('<b>' + point.nombre + '</b><br>' + point.alcaldia).openPopup()
       markercolonias.push(marker)
+      colonias2.push(point)
     }
   })
-
+  console.log(colonias2)
 })
+
+function datosgenerales() {
+  const radius = document.getElementById('radiosalud').value
+  const radius2 = document.getElementById('radioeducacion').value
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
+  infogeneral.push({ "alcaldia": selected, "radio": radius, "hospitalesprivados": markerhospitalpriv.length, "hospitalespublicos": markerhospitalpub.length, "consultoriosprivados": markerconsultpriv.length, "consultoriospublicos": markerconsultpub.length, "clinicasprivadas": markerclinicapriv.length, "clinicaspublicas": markerclinicapub.length })
+
+  infogeneral.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadesprivadas": markeruniversidadpriv.length, "universidadesprivadas": markeruniversidadpub.length })
+  guardararchivo()
+}
+
+function guardararchivo() {
+  // var check = document.getElementById('rutas');
+  // var checked = check.checked;
+  // if (checked) {
+  //   fetch('/creararchivorutas', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(infogeneral)
+  //   }).then(res => console.log('archivo creado')).catch(err => console.log(err))
+  // } else {
+    fetch('/creararchivo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(infogeneral)
+    }).then(res => console.log('archivo creado')).catch(err => console.log(err))
+    // console.log(JSON.stringify(infohospitalpriv))
+  //}
+}
