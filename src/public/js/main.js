@@ -814,6 +814,7 @@ function unipriv() {
     })
 
   }
+  console.log(markeruniversidadpriv.length)
 }
 
 function unipub() {
