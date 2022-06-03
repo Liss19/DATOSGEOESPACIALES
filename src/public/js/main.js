@@ -1044,7 +1044,7 @@ function datosgenerales() {
   var selected = combo.options[combo.selectedIndex].text;
   infogeneralsalud.push({ "alcaldia": selected, "radio": radius, "hospitalesprivados": markerhospitalpriv.length, "hospitalespublicos": markerhospitalpub.length, "consultoriosprivados": markerconsultpriv.length, "consultoriospublicos": markerconsultpub.length, "clinicasprivadas": markerclinicapriv.length, "clinicaspublicas": markerclinicapub.length })
 
-  infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadesprivadas" : markeruniversidadpriv.length, "universidadesprivadas" : markeruniversidadpriv.length })
+  infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadespublicas" : markeruniversidadpub.length, "universidadesprivadas" : markeruniversidadpriv.length })
   console.log(infogeneraleducacion)
   guardararchivo()
 }
