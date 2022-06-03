@@ -9,7 +9,7 @@ var markercp, markerhp, markerhpub, markercpub, markerclinp, markerclinpub, mark
 var infogeneralsalud = [], infogeneraleducacion = [], infohospitalpriv = [], infohospitalpub = [], infoconsulturiopriv = [], infoconsultoriopub = [], infoclinicapriv = [], infoclinicapub = [], infopreepriv = [], infopreepub = [], infoprimpriv = [], infoprimpub = [], infosecpriv = [], infosecpub = [], infoprepapriv = [], infoprepapub = [], infounipriv = [], infounipub = []
 var consultprivado = [], hospitalprivado = [], hospitalpublico = [], consultpublico = [], clinicapublica = [], clinicaprivada = [], preepublico = [], preeprivado = [], primpublica = [], primprivada = [], secpublica = [], secprivada = [], prepaprivada = [], prepapublica = [], uniprivada = [], unipublica = []
 let latlng = 0
-let i = 0
+let i = 0, contador;
 var distance, distance2, rutas2 = [], rutasremp = [];
 
 const map = L.map('map-template').setView([19.42847, -99.12766], 15)
@@ -263,6 +263,7 @@ function hospitalpriv() {
 
   if (checked) {
     colonias2.map((point1) => {
+      contador = 0;
       hospitalprivado.map((point) => {
         rutas2.length = 0;
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
@@ -284,7 +285,8 @@ function hospitalpriv() {
           markerhospitalpriv.push(markerhp)
         }
       })
-      infohospitalpriv.push(markerhospitalpriv.length)
+      contador = markerhospitalpriv.length;
+      infohospitalpriv.push(contador)
     })
   } else {
     markerhospitalpriv.map((point) => {
