@@ -6,7 +6,7 @@
 var markercolonias = [], colonias2 = [], colonias1 = [], escuelas1 = []
 var markerconsultpriv = [], markerhospitalpriv = [], markerhospitalpub = [], markerconsultpub = [], markerclinicapriv = [], markerclinicapub = [], markerpreescolarpriv = [], markerpreescolarpub = [], markerprimariapriv = [], markerprimariapub = [], markersecundariapriv = [], markersecundariapub = [], markerpreparatoriapriv = [], markerpreparatoriapub = [], markeruniversidadpriv = [], markeruniversidadpub = []
 var markercp, markerhp, markerhpub, markercpub, markerclinp, markerclinpub, markerpreep, markerpreepub, markerprimp, markerprimpub, markersecp, markersecpub, markerprepap, markerprepapub, markerunip, markerunipub
-var infogeneral = []
+var infogeneralsalud = [], infogeneraleducacion = []
 var consultprivado = [], hospitalprivado = [], hospitalpublico = [], consultpublico = [], clinicapublica = [], clinicaprivada = [], preepublico = [], preeprivado = [], primpublica = [], primprivada = [], secpublica = [], secprivada = [], prepaprivada = [], prepapublica = [], uniprivada = [], unipublica = []
 let latlng = 0
 let i = 0
@@ -30,30 +30,30 @@ var marcadorHospitalesPub = L.AwesomeMarkers.icon({
 });
 
 var marcadorConsultorios = L.AwesomeMarkers.icon({
-  icon: 'circle-h',
+  icon: 'hospital',
   prefix: 'fa',
-  markerColor: 'green',
+  markerColor: 'DarkSalmon',
   iconColor: 'white'
 });
 
 var marcadorConsultoriosPub = L.AwesomeMarkers.icon({
-  icon: 'circle-h',
+  icon: 'hospital',
   prefix: 'fa',
-  markerColor: 'red',
+  markerColor: 'LightSalmon',
   iconColor: 'white'
 });
 
 var marcadorClinicas = L.AwesomeMarkers.icon({
-  icon: 'house-medical',
+  icon: 'hospital',
   prefix: 'fa',
-  markerColor: 'green',
+  markerColor: 'Moccasin',
   iconColor: 'white'
 });
 
 var marcadorClinicasPub = L.AwesomeMarkers.icon({
-  icon: 'house-medical',
+  icon: 'hospital',
   prefix: 'fa',
-  markerColor: 'red',
+  markerColor: 'DarkKhaki',
   iconColor: 'white'
 });
 
@@ -1042,31 +1042,27 @@ function datosgenerales() {
   const radius2 = document.getElementById('radioeducacion').value
   var combo = document.getElementById("deleg");
   var selected = combo.options[combo.selectedIndex].text;
-  infogeneral.push({ "alcaldia": selected, "radio": radius, "hospitalesprivados": markerhospitalpriv.length, "hospitalespublicos": markerhospitalpub.length, "consultoriosprivados": markerconsultpriv.length, "consultoriospublicos": markerconsultpub.length, "clinicasprivadas": markerclinicapriv.length, "clinicaspublicas": markerclinicapub.length })
+  infogeneralsalud.push({ "alcaldia": selected, "radio": radius, "hospitalesprivados": markerhospitalpriv.length, "hospitalespublicos": markerhospitalpub.length, "consultoriosprivados": markerconsultpriv.length, "consultoriospublicos": markerconsultpub.length, "clinicasprivadas": markerclinicapriv.length, "clinicaspublicas": markerclinicapub.length })
 
-  infogeneral.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadesprivadas": markeruniversidadpriv.length, "universidadesprivadas": markeruniversidadpub.length })
+  infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadesprivadas": markeruniversidadpriv.length, "universidadesprivadas": markeruniversidadpub.length })
   guardararchivo()
 }
 
 function guardararchivo() {
-  // var check = document.getElementById('rutas');
-  // var checked = check.checked;
-  // if (checked) {
-  //   fetch('/creararchivorutas', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(infogeneral)
-  //   }).then(res => console.log('archivo creado')).catch(err => console.log(err))
-  // } else {
-    fetch('/creararchivo', {
+
+    fetch('/creararchivosalud', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(infogeneral)
+      body: JSON.stringify(infogeneralsalud)
     }).then(res => console.log('archivo creado')).catch(err => console.log(err))
-    // console.log(JSON.stringify(infohospitalpriv))
-  //}
+
+    fetch('/creararchivoeducacion', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(infogeneraleducacion)
+    }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 }

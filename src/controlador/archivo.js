@@ -1,31 +1,59 @@
 var fs = require('fs');
-var stringify1 = require('csv-stringify');
+var csvwriter = require('csv-writer')
 
 function obtenerdatos(datos) {
-    creararchivo(datos)
-    //
+    creararchivosalud(datos)
 }
 
-// function obtenerdatosrutas(datos) {
-//     creararchivorutas(datos)
-// }
+function obtenerdatoseducacion(datos) {
+    creararchivoeducacion(datos)
+    creararchivocsvsalud(datos)
+}
 
-function creararchivo(datos) {
+function creararchivosalud(datos) {
     let data = JSON.stringify(datos);
-    fs.writeFile('datosgeoespaciales.json', data, (err) => {
+    fs.writeFile('datosgeoespacialessalud.json', data, (err) => {
         if (err) throw err;
         console.log('Data written to file');
     });
-    creararchivocsv(datos)
 }
 
-function creararchivocsv(datos){
+function creararchivoeducacion(datos) {
     let data = JSON.stringify(datos);
-    stringify1(data, {
-        header: true
-    }, function (err, output) {
-        fs.writeFile('datosgeoespaciales.csv', output);
-    })
+    fs.writeFile('datosgeoespacialeseducacion.json', data, (err) => {
+        if (err) throw err;
+        console.log('Data written to file');
+    });
+}
+
+async function creararchivocsvsalud(datos) {
+    let data = JSON.stringify(datos);
+    var createCsvWriter = csvwriter.createObjectCsvWriter
+
+    // Passing the column names intp the module
+    const csvWriter = createCsvWriter({
+
+        // Output csv file name is geek_data
+        path: 'datosgeoespacialessalud.csv',
+        header: [
+
+            // Title of the columns (column_names)
+            { id: 'alcaldia', title: 'alcaldia' },
+            { id: 'radio', title: 'radio' },
+            { id: 'hospitalesprivados', title: 'hospitalesprivados' },
+            { id: 'hospitalespublicos', title: 'hospitalespublicos' },
+            { id: 'consultoriosprivados', title: 'consultoriosprivados' },
+            { id: 'consultoriospublicos', title: 'consultoriospublicos' },
+            { id: 'clinicasprivadas', title: 'clinicasprivadas' },
+            { id: 'clinicaspublicas', title: 'clinicaspublicas' }
+        ]
+    });
+
+    // Writerecords function to add records
+    console.log(data)
+    await csvWriter
+        .writeRecords(data)
+        .then(() => console.log('Data uploaded into csv successfully'));
 }
 
 // function creararchivorutas(datos) {
@@ -36,4 +64,4 @@ function creararchivocsv(datos){
 //     });
 // }
 
-module.exports = { obtenerdatos, creararchivo}
+module.exports = { obtenerdatos, obtenerdatoseducacion, creararchivosalud, creararchivoeducacion }

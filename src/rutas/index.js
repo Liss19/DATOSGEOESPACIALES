@@ -196,12 +196,33 @@ router.route('/obtenerdatosuniversidadpublica').get( (req,res)=> {
 
 });
 
-router.post('/creararchivo',(req,res)=>{
+router.post('/creararchivosalud',(req,res)=>{
     
     var datos = req.body
     console.log(datos)
     archivo.obtenerdatos(datos);
     res.send('ggs')
 })
+
+router.post('/creararchivoeducacion',(req,res)=>{
+    
+    var datos = req.body
+    console.log(datos)
+    archivo.obtenerdatoseducacion(datos);
+    res.send('ggs')
+})
+
+router.get('/descargar', (req,res)=>{
+    res.download('datosgeoespacialessalud.json', function(error){
+        console.log("Error : ", error)
+    })
+})
+
+router.get('/descargareducacion', (req,res)=>{
+    res.download('datosgeoespacialeseducacion.json', function(error){
+        console.log("Error : ", error)
+    })
+})
+
 
 module.exports = router;

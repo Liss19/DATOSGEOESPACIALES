@@ -16,11 +16,13 @@ app.set('views', 'C:/Users/Gambo/Desktop/DATOSGEOESPACIALES/src/vista');
 // rutas
 app.use(require('./rutas/index'));
 
+//port
+app.set('port', process.env.PORT || 3000)
 
 //archivos estaticos
 app.use(express.static('C:/Users/Gambo/Desktop/DATOSGEOESPACIALES/src/public'));
 
 //servidor
-app.listen(3000,() =>{
-    console.log('Server on port 3000');
+app.listen(app.get('port'),() =>{
+    console.log(`Server on port ${app.get('port')}`);
 });
