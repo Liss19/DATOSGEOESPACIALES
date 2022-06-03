@@ -4,7 +4,7 @@
 
 //var marker, marcador
 var markercolonias = [], colonias2 = [], colonias1 = [], escuelas1 = []
-var markerconsultpriv = [], markerhospitalpriv = [], markerhospitalpub = [], markerconsultpub = [], markerclinicapriv = [], markerclinicapub = [], markerpreescolarpriv = [], markerpreescolarpub = [], markerprimariapriv = [], markerprimariapub = [], markersecundariapriv = [], markersecundariapub = [], markerpreparatoriapriv = [], markerpreparatoriapub = [], markeruniversidadpriv = [], markeruniversidadpub = []
+var markerconsultpriv = [], markerhospitalpriv = [], markerhospitalpub = [], markerconsultpub = [], markerclinicapriv = [], markerclinicapub = [], markerpreescolarpriv = [], markerpreescolarpub = [], markerprimariapriv = [], markerprimariapub = [], markersecundariapriv = [], markerhospitarlpriv2 = [], markersecundariapub = [], markerpreparatoriapriv = [], markerpreparatoriapub = [], markeruniversidadpriv = [], markeruniversidadpub = []
 var markercp, markerhp, markerhpub, markercpub, markerclinp, markerclinpub, markerpreep, markerpreepub, markerprimp, markerprimpub, markersecp, markersecpub, markerprepap, markerprepapub, markerunip, markerunipub
 var infogeneralsalud = [], infogeneraleducacion = [], infohospitalpriv = [], infohospitalpub = [], infoconsulturiopriv = [], infoconsultoriopub = [], infoclinicapriv = [], infoclinicapub = [], infopreepriv = [], infopreepub = [], infoprimpriv = [], infoprimpub = [], infosecpriv = [], infosecpub = [], infoprepapriv = [], infoprepapub = [], infounipriv = [], infounipub = []
 var consultprivado = [], hospitalprivado = [], hospitalpublico = [], consultpublico = [], clinicapublica = [], clinicaprivada = [], preepublico = [], preeprivado = [], primpublica = [], primprivada = [], secpublica = [], secprivada = [], prepaprivada = [], prepapublica = [], uniprivada = [], unipublica = []
@@ -263,7 +263,7 @@ function hospitalpriv() {
 
   if (checked) {
     colonias2.map((point1) => {
-      contador = 0;
+      markerhospitarlpriv2.length = 0;
       hospitalprivado.map((point) => {
         rutas2.length = 0;
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
@@ -283,10 +283,11 @@ function hospitalpriv() {
           let result = [...dataArr];
           markerhp.bindPopup(('<b>' + point.nombre + '</b><br>' + point.nivel + '<br><p style="width: 100%;">' + result + '</p>'), estilopopup).openPopup()
           markerhospitalpriv.push(markerhp)
+          markerhospitalpriv2.push(markerhp)
         }
       })
-      contador = markerhospitalpriv.length;
-      infohospitalpriv.push(contador)
+      
+      infohospitalpriv.push(markerhospitalpriv2.length)
     })
   } else {
     markerhospitalpriv.map((point) => {
