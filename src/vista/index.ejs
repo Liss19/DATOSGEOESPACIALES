@@ -98,7 +98,8 @@
                         <label class="form-check-label" for="flexCheckDefault">
                             Publico
                         </label> <br><br>
-
+                    </div>
+                    <div id="opcionesservicios">
                         <p class="h5">Sector Educación</p>
                         <div class="mb-3">
                             <label for="radiosalud" class="form-label">Radio</label>
@@ -110,12 +111,12 @@
                                 class="btn btn-success btn-sm">
                         </div><br>
 
-                        <label for="educacion" class="form-label">Seleccionar servicio</label>
+                        <p class="form-label">Seleccionar servicio</p>
                         <input class="form-check-input" type="checkbox" value="Preescolar" id="Preescolar"
                             onclick="Educacion()">
                         <label class="form-check-label" for="flexCheckDefault">
                             Preescolar
-                        </label><br>
+                        </label> <br>
                         <input class="form-check-input" type="checkbox" value="Primaria" id="Primaria"
                             onclick="Educacion()">
                         <label class="form-check-label" for="flexCheckDefault">
@@ -139,19 +140,14 @@
                         <br>
                         <p class="form-label">Seleccionar tipo</p>
                         <input class="form-check-input" type="checkbox" value="" id="privadoeducacion"
-                            onclick="PrivadoEducacion()">
+                            onclick="PrivadoEducacion()" disabled>
                         <label class="form-check-label" for="flexCheckDefault">
                             Privado
                         </label>
                         <input class="form-check-input" type="checkbox" value="" id="publicoeducacion"
-                            onclick="PublicoEducacion()">
+                            onclick="PublicoEducacion()" disabled>
                         <label class="form-check-label" for="flexCheckDefault">
                             Publico
-                        </label> <br><br>
-
-                        <input class="form-check-input" type="checkbox" value="" id="rutas">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Rutas de transporte
                         </label> <br><br>
                         <input type="button" value="Crear Archivo" id="boton" onclick="datosgenerales()"
                             class="btn btn-success btn-sm"><br>
