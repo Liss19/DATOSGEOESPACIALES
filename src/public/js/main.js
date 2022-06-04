@@ -67,7 +67,7 @@ var marcadorPreescolar = L.AwesomeMarkers.icon({
 var marcadorPreescolarPub = L.AwesomeMarkers.icon({
   icon: 'school',
   prefix: 'fa',
-  markerColor: 'Pink',
+  markerColor: 'SeaGreen',
   iconColor: 'white'
 });
 
@@ -81,7 +81,7 @@ var marcadorPrimarias = L.AwesomeMarkers.icon({
 var marcadorPrimariasPub = L.AwesomeMarkers.icon({
   icon: 'school',
   prefix: 'fa',
-  markerColor: 'Crimson',
+  markerColor: 'CornflowerBlue',
   iconColor: 'white'
 });
 
