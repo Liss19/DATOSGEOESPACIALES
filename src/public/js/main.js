@@ -1078,3 +1078,7 @@ function guardararchivo() {
     body: JSON.stringify(infogeneraleducacion)
   }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 }
+
+function limpiar(){
+  map.clear ();
+}
