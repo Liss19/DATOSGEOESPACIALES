@@ -6,7 +6,7 @@
 var markercolonias = [], colonias2 = [], colonias1 = [], escuelas1 = []
 var markerconsultpriv = [], markerconsultpriv2 = [], markerhospitalpriv = [], markerhospitalpriv2 = [], markerhospitalpub = [], markerhospitalpub2 = [], markerconsultpub = [], markerconsultpub2 = [], markerclinicapriv = [], markerclinicapriv2 = [], markerclinicapub = [], markerclinicapub2 = [], markerpreescolarpriv = [], markerpreescolarpriv2 = [], markerpreescolarpub = [], markerpreescolarpub2 = [], markerprimariapriv = [], markerprimariapriv2 = [], markerprimariapub = [], markerprimariapub2 = [], markersecundariapriv = [], markersecundariapriv2 = [], markersecundariapub = [], markersecundariapub2 = [], markerpreparatoriapriv = [], markerpreparatoriapriv2 = [], markerpreparatoriapub = [], markerpreparatoriapub2 = [], markeruniversidadpriv = [], markeruniversidadpriv2 = [], markeruniversidadpub2 = [], markeruniversidadpub = []
 var markercp, markerhp, markerhpub, markercpub, markerclinp, markerclinpub, markerpreep, markerpreepub, markerprimp, markerprimpub, markersecp, markersecpub, markerprepap, markerprepapub, markerunip, markerunipub
-var infogeneralsalud = [], infogeneraleducacion = [], infohospitalpriv = [], infohospitalpub = [], infoconsulturiopriv = [], infoconsultoriopub = [], infoclinicapriv = [], infoclinicapub = [], infopreepriv = [], infopreepub = [], infoprimpriv = [], infoprimpub = [], infosecpriv = [], infosecpub = [], infoprepapriv = [], infoprepapub = [], infounipriv = [], infounipub = []
+var infogeneralsaludservicios = [], infogeneraleducacionservicios = [], infogeneralsalud = [], infogeneraleducacion = [], infohospitalpriv = [], infohospitalpub = [], infoconsulturiopriv = [], infoconsultoriopub = [], infoclinicapriv = [], infoclinicapub = [], infopreepriv = [], infopreepub = [], infoprimpriv = [], infoprimpub = [], infosecpriv = [], infosecpub = [], infoprepapriv = [], infoprepapub = [], infounipriv = [], infounipub = []
 var consultprivado = [], hospitalprivado = [], hospitalpublico = [], consultpublico = [], clinicapublica = [], clinicaprivada = [], preepublico = [], preeprivado = [], primpublica = [], primprivada = [], secpublica = [], secprivada = [], prepaprivada = [], prepapublica = [], uniprivada = [], unipublica = []
 let latlng = 0
 let i = 0, contador = 0;
@@ -284,12 +284,13 @@ function hospitalpriv() {
           markerhp.bindPopup(('<b>' + point.nombre + '</b><br>' + point.nivel + '<br><p style="width: 100%;">' + result + '</p>'), estilopopup).openPopup()
           markerhospitalpriv.push(markerhp)
           markerhospitalpriv2.push(markerhp)
-          
+          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": distance})
         }
       })
 
       infohospitalpriv.push(markerhospitalpriv2.length)
     })
+    console.log(infogeneralsaludservicios);
   } else {
     markerhospitalpriv.map((point) => {
       map.removeLayer(point);
