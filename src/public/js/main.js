@@ -286,7 +286,7 @@ function hospitalpriv() {
           markerhospitalpriv2.push(markerhp)
         }
       })
-      
+
       infohospitalpriv.push(markerhospitalpriv2.length)
     })
   } else {
@@ -1033,7 +1033,7 @@ document.getElementById('deleg').addEventListener('change', function (e) {
       marker.bindPopup('<b>' + point.nombre + '</b><br>' + point.alcaldia).openPopup()
       markercolonias.push(marker)
       colonias2.push(point)
-      
+
     }
   })
   console.log(colonias2)
@@ -1046,10 +1046,10 @@ function datosgenerales() {
   var combo = document.getElementById("deleg");
   var selected = combo.options[combo.selectedIndex].text;
 
-  colonias2.map((point) =>{
+  colonias2.map((point) => {
     infogeneralsalud.push({ "alcaldia": selected, "radio": radius, "id_colonia": point.id, "colonia": point.nombre, "hospitalesprivados": infohospitalpriv[contador], "hospitalespublicos": infohospitalpub[contador], "consultoriosprivados": infoconsulturiopriv[contador], "consultoriospublicos": infoconsultoriopub[contador], "clinicasprivadas": infoclinicapriv[contador], "clinicaspublicas": infoclinicapub[contador] })
 
-    infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2,"id_colonia": point.id, "colonia": point.nombre, "preescolarprivados": infopreepriv[contador], "preescolarpublicos": infopreepub[contador], "primariasprivadas": infoprimpriv[contador], "primariaspublicas": infoprimpub[contador], "secundariasprivadas": infosecpriv[contador], "secundariaspublicas": infosecpub[contador], "preparatoriasprivadas": infoprepapriv[contador], "preparatoriaspublicas": infoprepapub[contador], "universidadespublicas": infounipriv[contador], "universidadesprivadas": infounipub[contador] })
+    infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2, "id_colonia": point.id, "colonia": point.nombre, "preescolarprivados": infopreepriv[contador], "preescolarpublicos": infopreepub[contador], "primariasprivadas": infoprimpriv[contador], "primariaspublicas": infoprimpub[contador], "secundariasprivadas": infosecpriv[contador], "secundariaspublicas": infosecpub[contador], "preparatoriasprivadas": infoprepapriv[contador], "preparatoriaspublicas": infoprepapub[contador], "universidadespublicas": infounipriv[contador], "universidadesprivadas": infounipub[contador] })
 
     contador++;
   })
@@ -1080,7 +1080,7 @@ function guardararchivo() {
   }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 }
 
-function limpiar(){
+function limpiar() {
   radios.map((point) => {
     map.removeLayer(point);
   })
@@ -1156,23 +1156,23 @@ function limpiar(){
   markeruniversidadpub.length = 0;
 
 
-  infogeneralsalud.length = 0 
-  infogeneraleducacion.length = 0 
-  infohospitalpriv.length = 0 
-  infohospitalpub.length = 0 
-  infoconsulturiopriv.length = 0 
-  infoconsultoriopub.length = 0 
-  infoclinicapriv.length = 0 
-  infoclinicapub.length = 0 
-  infopreepriv.length = 0 
-  infopreepub.length = 0 
-  infoprimpriv.length = 0 
-  infoprimpub.length = 0 
-  infosecpriv.length = 0 
-  infosecpub.length = 0 
-  infoprepapriv.length = 0 
-  infoprepapub.length = 0 
-  infounipriv.length = 0 
+  infogeneralsalud.length = 0
+  infogeneraleducacion.length = 0
+  infohospitalpriv.length = 0
+  infohospitalpub.length = 0
+  infoconsulturiopriv.length = 0
+  infoconsultoriopub.length = 0
+  infoclinicapriv.length = 0
+  infoclinicapub.length = 0
+  infopreepriv.length = 0
+  infopreepub.length = 0
+  infoprimpriv.length = 0
+  infoprimpub.length = 0
+  infosecpriv.length = 0
+  infosecpub.length = 0
+  infoprepapriv.length = 0
+  infoprepapub.length = 0
+  infounipriv.length = 0
   infounipub.length = 0
 
   var check = document.getElementById('Hospital');
@@ -1203,4 +1203,8 @@ function limpiar(){
 
   document.getElementById("radiosalud").value = "";
   document.getElementById("radioeducacion").value = "";
+  document.getElementById("publicosalud").setAttribute('disabled', 'disabled');
+  document.getElementById("privadosalud").setAttribute('disabled', 'disabled');
+  document.getElementById("publicoeducacion").setAttribute('disabled', 'disabled');
+  document.getElementById("privadoeducacion").setAttribute('disabled', 'disabled');
 }
