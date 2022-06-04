@@ -284,7 +284,7 @@ function hospitalpriv() {
           markerhp.bindPopup(('<b>' + point.nombre + '</b><br>' + point.nivel + '<br><p style="width: 100%;">' + result + '</p>'), estilopopup).openPopup()
           markerhospitalpriv.push(markerhp)
           markerhospitalpriv2.push(markerhp)
-          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": distance})
+          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
 
