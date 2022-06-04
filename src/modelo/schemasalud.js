@@ -5,6 +5,7 @@ const Salud = new Schema ({
     id: { type: String, required: true},
     nombre: { type: String, required: true},
     nivel: { type: String, required: true},
+    tipo: { type: String, required: true},
     latitud: { type: String, required: true},
     longitud: { type: String, required: true}
 });
