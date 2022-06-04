@@ -1183,6 +1183,11 @@ function limpiar(){
   var check6 = document.getElementById('Secundaria');
   var check7 = document.getElementById('Preparatoria');
   var check8 = document.getElementById('Universidad');
+  var check9 = document.getElementById('privadosalud');
+  var check10 = document.getElementById('publicosalud');
+  var check11 = document.getElementById('privadoeducacion');
+  var check12 = document.getElementById('publicoeducacion');
+
   check.checked = false
   check2.checked = false
   check3.checked = false
@@ -1191,6 +1196,10 @@ function limpiar(){
   check6.checked = false
   check7.checked = false
   check8.checked = false
+  check9.checked = false
+  check10.checked = false
+  check11.checked = false
+  check12.checked = false
 
   document.getElementById("radiosalud").value = "";
   document.getElementById("radioeducacion").value = "";
