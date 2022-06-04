@@ -1084,4 +1084,114 @@ function limpiar(){
   radios.map((point) => {
     map.removeLayer(point);
   })
+  radios.length = 0;
+  markercolonias.map((point) => {
+    map.removeLayer(point);
+  })
+  colonias2.length = 0;
+  markercolonias.length = 0;
+  markerhospitalpriv.map((point) => {
+    map.removeLayer(point);
+  })
+  markerhospitalpriv.length = 0;
+  markerhospitalpub.map((point) => {
+    map.removeLayer(point);
+  })
+  markerhospitalpub.length = 0;
+  markerconsultpriv.map((point) => {
+    map.removeLayer(point);
+  })
+  markerconsultpriv.length = 0;
+  markerconsultpub.map((point) => {
+    map.removeLayer(point);
+  })
+  markerconsultpub.length = 0;
+  markerclinicapriv.map((point) => {
+    map.removeLayer(point);
+  })
+  markerclinicapriv.length = 0;
+  markerclinicapub.map((point) => {
+    map.removeLayer(point);
+  })
+  markerclinicapub.length = 0;
+  markerpreescolarpriv.map((point) => {
+    map.removeLayer(point);
+  })
+  markerpreescolarpriv.length = 0;
+  markerpreescolarpub.map((point) => {
+    map.removeLayer(point);
+  })
+  markerpreescolarpub.length = 0;
+  markerprimariapriv.map((point) => {
+    map.removeLayer(point);
+  })
+  markerprimariapriv.length = 0;
+  markerprimariapub.map((point) => {
+    map.removeLayer(point);
+  })
+  markerprimariapub.length = 0;
+  markersecundariapriv.map((point) => {
+    map.removeLayer(point);
+  })
+  markersecundariapriv.length = 0;
+  markersecundariapub.map((point) => {
+    map.removeLayer(point);
+  })
+  markersecundariapub.length = 0;
+  markerpreparatoriapriv.map((point) => {
+    map.removeLayer(point);
+  })
+  markerpreparatoriapriv.length = 0;
+  markerpreparatoriapub.map((point) => {
+    map.removeLayer(point);
+  })
+  markerpreparatoriapub.length = 0;
+  markeruniversidadpriv.map((point) => {
+    map.removeLayer(point);
+  })
+  markeruniversidadpriv.length = 0;
+  markeruniversidadpub.map((point) => {
+    map.removeLayer(point);
+  })
+  markeruniversidadpub.length = 0;
+
+
+  infogeneralsalud.length = 0 
+  infogeneraleducacion.length = 0 
+  infohospitalpriv.length = 0 
+  infohospitalpub.length = 0 
+  infoconsulturiopriv.length = 0 
+  infoconsultoriopub.length = 0 
+  infoclinicapriv.length = 0 
+  infoclinicapub.length = 0 
+  infopreepriv.length = 0 
+  infopreepub.length = 0 
+  infoprimpriv.length = 0 
+  infoprimpub.length = 0 
+  infosecpriv.length = 0 
+  infosecpub.length = 0 
+  infoprepapriv.length = 0 
+  infoprepapub.length = 0 
+  infounipriv.length = 0 
+  infounipub.length = 0
+
+  var check = document.getElementById('Hospital');
+  var check2 = document.getElementById('Clinica');
+  var check3 = document.getElementById('Consultorio');
+  var check4 = document.getElementById('Preescolar');
+  var check5 = document.getElementById('Primaria');
+  var check6 = document.getElementById('Secundaria');
+  var check7 = document.getElementById('Preparatoria');
+  var check8 = document.getElementById('Universidad');
+  check.checked = false
+  check2.checked = false
+  check3.checked = false
+  check4.checked = false
+  check5.checked = false
+  check6.checked = false
+  check7.checked = false
+  check8.checked = false
+
+  document.getElementById("radiosalud").value = "";
+  document.getElementById("radioeducacion").value = "";
 }
