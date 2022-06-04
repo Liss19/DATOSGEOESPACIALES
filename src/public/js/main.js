@@ -10,7 +10,7 @@ var infogeneralsalud = [], infogeneraleducacion = [], infohospitalpriv = [], inf
 var consultprivado = [], hospitalprivado = [], hospitalpublico = [], consultpublico = [], clinicapublica = [], clinicaprivada = [], preepublico = [], preeprivado = [], primpublica = [], primprivada = [], secpublica = [], secprivada = [], prepaprivada = [], prepapublica = [], uniprivada = [], unipublica = []
 let latlng = 0
 let i = 0, contador = 0;
-var distance, distance2, rutas2 = [], rutasremp = [];
+var distance, distance2, rutas2 = [], rutasremp = [], radios = [], radio;
 
 const map = L.map('map-template').setView([19.42847, -99.12766], 15)
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
@@ -1002,15 +1002,16 @@ function radiosalud() {
   const radius = document.getElementById('radiosalud').value
   markercolonias.map((point) => {
 
-    L.circle(point._latlng, { color: 'hotpink', fillColor: 'palevioletred', fillOpacity: 0.5, radius: radius }).addTo(map)
-
+    radio = L.circle(point._latlng, { color: 'hotpink', fillColor: 'palevioletred', fillOpacity: 0.5, radius: radius }).addTo(map)
+    radios.push(radio)
   })
 }
 function radioeducacion() {
   const radius = document.getElementById('radioeducacion').value
   markercolonias.map((point) => {
 
-    L.circle(point._latlng, { color: 'DarkSlateBlue', fillColor: 'MediumSlateBlue', fillOpacity: 0.5, radius: radius }).addTo(map)
+    radio = L.circle(point._latlng, { color: 'DarkSlateBlue', fillColor: 'MediumSlateBlue', fillOpacity: 0.5, radius: radius }).addTo(map)
+    radios.push(radio)
 
   })
 }
@@ -1080,5 +1081,7 @@ function guardararchivo() {
 }
 
 function limpiar(){
-  map.clear ();
+  radios.map((point) => {
+    map.removeLayer(point);
+  })
 }
