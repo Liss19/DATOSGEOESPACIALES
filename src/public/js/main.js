@@ -88,7 +88,7 @@ var marcadorPrimariasPub = L.AwesomeMarkers.icon({
 var marcadorSecundarias = L.AwesomeMarkers.icon({
   icon: 'school',
   prefix: 'fa',
-  markerColor: 'Coral',
+  markerColor: 'DeepSkyBlue',
   iconColor: 'white'
 });
 
