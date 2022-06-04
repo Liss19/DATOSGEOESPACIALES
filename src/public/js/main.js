@@ -123,7 +123,7 @@ var marcadorUniversidades = L.AwesomeMarkers.icon({
 var marcadorUniversidadesPub = L.AwesomeMarkers.icon({
   icon: 'school',
   prefix: 'fa',
-  markerColor: 'Teal',
+  markerColor: 'MidnightBlue',
   iconColor: 'white'
 });
 
