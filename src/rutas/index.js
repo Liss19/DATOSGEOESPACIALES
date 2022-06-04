@@ -21,7 +21,7 @@ router.route('/obtenerdatoscolonias').get( (req,res)=> {
 });
 
 router.route('/obtenerdatoshospitalprivado').get( (req,res)=> {
-    Salud.find({nivel : "Hospital privado"},function(err,datos){
+    Salud.find({nivel : "Hospital general privado"},function(err,datos){
         if (err) {
             res.send(err);
           } else {
@@ -32,7 +32,7 @@ router.route('/obtenerdatoshospitalprivado').get( (req,res)=> {
 });
 
 router.route('/obtenerdatoshospitalpublico').get( (req,res)=> {
-    Salud.find({nivel : "Hospital publico"},function(err,datos){
+    Salud.find({nivel : "Hospital general publico"},function(err,datos){
         if (err) {
             res.send(err);
           } else {
@@ -43,7 +43,7 @@ router.route('/obtenerdatoshospitalpublico').get( (req,res)=> {
 });
 
 router.route('/obtenerdatosconsultorioprivado').get( (req,res)=> {
-    Salud.find({nivel : "Consultorio medico privado"},function(err,datos){
+    Salud.find({nivel : "Consultorios de medicina general privado"},function(err,datos){
         if (err) {
             res.send(err);
           } else {
@@ -54,7 +54,7 @@ router.route('/obtenerdatosconsultorioprivado').get( (req,res)=> {
 });
 
 router.route('/obtenerdatosconsultoriopublico').get( (req,res)=> {
-    Salud.find({nivel : "Consultorio medico publico"},function(err,datos){
+    Salud.find({nivel : "Consultorios de medicina general publico"},function(err,datos){
         if (err) {
             res.send(err);
           } else {
@@ -65,7 +65,7 @@ router.route('/obtenerdatosconsultoriopublico').get( (req,res)=> {
 });
 
 router.route('/obtenerdatosclinicaprivada').get( (req,res)=> {
-    Salud.find({nivel : "Clinica privado"},function(err,datos){
+    Salud.find({nivel : "Clinicas general privada"},function(err,datos){
         if (err) {
             res.send(err);
           } else {
@@ -76,7 +76,7 @@ router.route('/obtenerdatosclinicaprivada').get( (req,res)=> {
 });
 
 router.route('/obtenerdatosclinicapublica').get( (req,res)=> {
-    Salud.find({nivel : "Clinica publico"},function(err,datos){
+    Salud.find({nivel : "Clinicas general publica"},function(err,datos){
         if (err) {
             res.send(err);
           } else {

@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
-
+//7213
 const Educacion = new Schema ({
     id: { type: String, required: true},
     nombre: { type: String, required: true},
     nivel: { type: String, required: true},
+    tipo: { type: String, required: true},
     latitud: { type: String, required: true},
     longitud: { type: String, required: true}
 });
