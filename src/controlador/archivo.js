@@ -3,11 +3,21 @@ var csvwriter = require('csv-writer')
 
 function obtenerdatos(datos) {
     creararchivosalud(datos)
+    creararchivocsvsalud(datos)
 }
 
 function obtenerdatoseducacion(datos) {
     creararchivoeducacion(datos)
-    creararchivocsvsalud(datos)
+    
+}
+
+function obtenerdatosservicios(datos) {
+    creararchivosaludservicios(datos)
+}
+
+function obtenerdatoseducacionservicios(datos) {
+    creararchivoeducacionservicios(datos)
+    
 }
 
 function creararchivosalud(datos) {
@@ -21,6 +31,22 @@ function creararchivosalud(datos) {
 function creararchivoeducacion(datos) {
     let data = JSON.stringify(datos);
     fs.writeFile('datosgeoespacialeseducacion.json', data, (err) => {
+        if (err) throw err;
+        console.log('Data written to file');
+    });
+}
+
+function creararchivosaludservicios(datos) {
+    let data = JSON.stringify(datos);
+    fs.writeFile('datosgeoespacialessaludservicios.json', data, (err) => {
+        if (err) throw err;
+        console.log('Data written to file');
+    });
+}
+
+function creararchivoeducacionservicios(datos) {
+    let data = JSON.stringify(datos);
+    fs.writeFile('datosgeoespacialeseducacionservicios.json', data, (err) => {
         if (err) throw err;
         console.log('Data written to file');
     });
@@ -40,6 +66,8 @@ async function creararchivocsvsalud(datos) {
             // Title of the columns (column_names)
             { id: 'alcaldia', title: 'alcaldia' },
             { id: 'radio', title: 'radio' },
+            { id: 'id_colonia', title: 'id_colonia' },
+            { id: 'colonia', title: 'colonia' },
             { id: 'hospitalesprivados', title: 'hospitalesprivados' },
             { id: 'hospitalespublicos', title: 'hospitalespublicos' },
             { id: 'consultoriosprivados', title: 'consultoriosprivados' },
@@ -52,7 +80,7 @@ async function creararchivocsvsalud(datos) {
     // Writerecords function to add records
     console.log(data)
     await csvWriter
-        .writeRecords(data)
+        .writeRecords(datos)
         .then(() => console.log('Data uploaded into csv successfully'));
 }
 
@@ -64,4 +92,4 @@ async function creararchivocsvsalud(datos) {
 //     });
 // }
 
-module.exports = { obtenerdatos, obtenerdatoseducacion, creararchivosalud, creararchivoeducacion }
+module.exports = { obtenerdatos, obtenerdatoseducacion, obtenerdatosservicios, obtenerdatoseducacionservicios, creararchivosalud, creararchivoeducacion, creararchivosaludservicios, creararchivoeducacionservicios, creararchivocsvsalud }

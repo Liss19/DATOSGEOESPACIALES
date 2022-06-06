@@ -290,7 +290,6 @@ function hospitalpriv() {
 
       infohospitalpriv.push(markerhospitalpriv2.length)
     })
-    console.log(infogeneralsaludservicios);
   } else {
     markerhospitalpriv.map((point) => {
       map.removeLayer(point);
@@ -324,6 +323,7 @@ function hospitalpub() {
           markerhpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerhospitalpub.push(markerhpub)
           markerhospitalpub2.push(markerhpub)
+          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infohospitalpub.push(markerhospitalpub2.length)
@@ -361,6 +361,7 @@ function consultpriv() {
           markercp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerconsultpriv.push(markercp)
           markerconsultpriv2.push(markercp)
+          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoconsulturiopriv.push(markerconsultoriopriv2.length)
@@ -398,6 +399,7 @@ function consultpub() {
           markercpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerconsultpub.push(markercp)
           markerconsultpub2.push(markercp)
+          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoconsulturiopub.push(markerconsultoriopub2.length)
@@ -435,6 +437,7 @@ function clinicapriv() {
           markerclinp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerclinicapriv.push(markerclinp)
           markerclinicapriv2.push(markerclinp)
+          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoclinicapriv.push(markerclinicapriv2.length)
@@ -471,6 +474,7 @@ function clinicapub() {
           markerclinpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerclinicapub.push(markerclinpub)
           markerclinicapub2.push(markerclinpub)
+          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoclinicapub.push(markerclinicapub2.length)
@@ -508,6 +512,7 @@ function preepriv() {
           markerpreep.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreescolarpriv.push(markerpreep)
           markerpreescolarpriv2.push(markerpreep)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infopreepriv.push(markerpreescolarpriv2.length)
@@ -545,6 +550,7 @@ function preepub() {
           markerpreepub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreescolarpub.push(markerpreepub)
           markerpreescolarpub2.push(markerpreepub)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infopreepub.push(markerpreescolarpub2.length)
@@ -582,6 +588,7 @@ function primpriv() {
           markerprimp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerprimariapriv.push(markerprimp)
           markerprimariapriv.push(markerprimp)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoprimpriv.push(markerprimariapriv2.length)
@@ -619,6 +626,7 @@ function primpub() {
           markerprimpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerprimariapub.push(markerprimpub)
           markerprimariapub2.push(markerprimpub)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoprimpriv.push(markerprimariapub2.length)
@@ -656,6 +664,7 @@ function secpriv() {
           markersecp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markersecundariapriv.push(markersecp)
           markersecundariapriv2.push(markersecp)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infosecpriv.push(markersecundariapriv2.length)
@@ -693,6 +702,7 @@ function secpub() {
           markersecpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markersecundariapub.push(markersecpub)
           markersecundariapub2.push(markersecpub)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infosecpub.push(markersecundariapub2.length)
@@ -731,6 +741,7 @@ function prepapriv() {
           markerprepap.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreparatoriapriv.push(markerprepap)
           markerpreparatoriapriv2.push(markerprepap)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoprepapriv.push(markerpreparatoriapriv2.length)
@@ -768,6 +779,7 @@ function prepapub() {
           markerprepapub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreparatoriapub.push(markerprepapub)
           markerpreparatoriapub2.push(markerprepapub)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoprepapub.push(markerpreparatoriapub2.length)
@@ -805,6 +817,7 @@ function unipriv() {
           markerunip.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markeruniversidadpriv.push(markerunip)
           markeruniversidadpriv2.push(markerunip)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infounipriv.push(markeruniversidadpriv2.length)
@@ -842,6 +855,7 @@ function unipub() {
           markerunipub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markeruniversidadpub.push(markerunipub)
           markeruniversidadpub2.push(markerunipub)
+          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infounipub.push(markeruniversidadpub2.length)
@@ -1055,11 +1069,7 @@ function datosgenerales() {
 
     contador++;
   })
-  // infogeneralsalud.push({ "alcaldia": selected, "radio": radius, "hospitalesprivados": markerhospitalpriv.length, "hospitalespublicos": markerhospitalpub.length, "consultoriosprivados": markerconsultpriv.length, "consultoriospublicos": markerconsultpub.length, "clinicasprivadas": markerclinicapriv.length, "clinicaspublicas": markerclinicapub.length })
-
-  // infogeneraleducacion.push({ "alcaldia": selected, "radio": radius2, "preescolarprivados": markerpreescolarpriv.length, "preescolarpublicos": markerpreescolarpub.length, "primariasprivadas": markerprimariapriv.length, "primariaspublicas": markerprimariapub.length, "secundariasprivadas": markersecundariapriv.length, "secundariaspublicas": markersecundariapub.length, "preparatoriasprivadas": markerpreparatoriapriv.length, "preparatoriaspublicas": markerpreparatoriapub.length, "universidadespublicas": markeruniversidadpub.length, "universidadesprivadas": markeruniversidadpriv.length })
-  console.log(infogeneraleducacion)
-  console.log(infogeneralsalud)
+  
   guardararchivo()
 }
 
@@ -1079,6 +1089,22 @@ function guardararchivo() {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(infogeneraleducacion)
+  }).then(res => console.log('archivo creado')).catch(err => console.log(err))
+
+  fetch('/creararchivosaludservicios', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(infogeneralsaludservicios)
+  }).then(res => console.log('archivo creado')).catch(err => console.log(err))
+
+  fetch('/creararchivoeducacionservicios', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(infogeneraleducacionservicios)
   }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 }
 
