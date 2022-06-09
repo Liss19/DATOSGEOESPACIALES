@@ -245,14 +245,32 @@ router.get('/descargareducacion', (req,res)=>{
     })
 })
 
+router.get('/descargareducacioncsv', (req,res)=>{
+  res.download('datosgeoespacialeseducacion.csv', function(error){
+      console.log("Error : ", error)
+  })
+})
+
 router.get('/descargarservicios', (req,res)=>{
   res.download('datosgeoespacialessaludservicios.json', function(error){
       console.log("Error : ", error)
   })
 })
 
+router.get('/descargarservicioscsv', (req,res)=>{
+  res.download('datosgeoespacialessaludservicios.csv', function(error){
+      console.log("Error : ", error)
+  })
+})
+
 router.get('/descargareducacionservicios', (req,res)=>{
   res.download('datosgeoespacialeseducacionservicios.json', function(error){
+      console.log("Error : ", error)
+  })
+})
+
+router.get('/descargareducacionservicioscsv', (req,res)=>{
+  res.download('datosgeoespacialeseducacionservicios.csv', function(error){
       console.log("Error : ", error)
   })
 })

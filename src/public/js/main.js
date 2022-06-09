@@ -260,6 +260,8 @@ function hospitalpriv() {
   const radius = document.getElementById('radiosalud').value
   var check = document.getElementById('privadosalud');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
 
   if (checked) {
     colonias2.map((point1) => {
@@ -284,7 +286,7 @@ function hospitalpriv() {
           markerhp.bindPopup(('<b>' + point.nombre + '</b><br>' + point.nivel + '<br><p style="width: 100%;">' + result + '</p>'), estilopopup).openPopup()
           markerhospitalpriv.push(markerhp)
           markerhospitalpriv2.push(markerhp)
-          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneralsaludservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
 
@@ -299,6 +301,8 @@ function hospitalpriv() {
 
 
 function hospitalpub() {
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   const radius = document.getElementById('radiosalud').value
   var check = document.getElementById('publicosalud');
   var checked = check.checked;
@@ -323,7 +327,7 @@ function hospitalpub() {
           markerhpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerhospitalpub.push(markerhpub)
           markerhospitalpub2.push(markerhpub)
-          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneralsaludservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infohospitalpub.push(markerhospitalpub2.length)
@@ -339,6 +343,8 @@ function hospitalpub() {
 function consultpriv() {
   const radius = document.getElementById('radiosalud').value
   var check = document.getElementById('privadosalud');
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   var checked = check.checked;
   if (checked) {
     colonias2.map((point1) => {
@@ -361,7 +367,7 @@ function consultpriv() {
           markercp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerconsultpriv.push(markercp)
           markerconsultpriv2.push(markercp)
-          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneralsaludservicios.push({"alcaldia":selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoconsulturiopriv.push(markerconsultoriopriv2.length)
@@ -378,6 +384,8 @@ function consultpub() {
   const radius = document.getElementById('radiosalud').value
   var check = document.getElementById('publicosalud');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markerconsultpub2.length = 0;
@@ -399,7 +407,7 @@ function consultpub() {
           markercpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerconsultpub.push(markercp)
           markerconsultpub2.push(markercp)
-          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneralsaludservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoconsulturiopub.push(markerconsultoriopub2.length)
@@ -416,6 +424,8 @@ function clinicapriv() {
   const radius = document.getElementById('radiosalud').value
   var check = document.getElementById('privadosalud');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markerclinicapriv2.length = 0;
@@ -437,7 +447,7 @@ function clinicapriv() {
           markerclinp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerclinicapriv.push(markerclinp)
           markerclinicapriv2.push(markerclinp)
-          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneralsaludservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoclinicapriv.push(markerclinicapriv2.length)
@@ -454,6 +464,8 @@ function clinicapub() {
   const radius = document.getElementById('radiosalud').value
   var check = document.getElementById('publicosalud');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       clinicapublica.map((point) => {
@@ -474,7 +486,7 @@ function clinicapub() {
           markerclinpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerclinicapub.push(markerclinpub)
           markerclinicapub2.push(markerclinpub)
-          infogeneralsaludservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneralsaludservicios.push({"alcaldia": selected, "id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoclinicapub.push(markerclinicapub2.length)
@@ -491,6 +503,8 @@ function preepriv() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markerpreescolarpriv2.length = 0;
@@ -512,7 +526,7 @@ function preepriv() {
           markerpreep.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreescolarpriv.push(markerpreep)
           markerpreescolarpriv2.push(markerpreep)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcaldia": selected, "id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infopreepriv.push(markerpreescolarpriv2.length)
@@ -529,6 +543,8 @@ function preepub() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markerpreescolarpub2.length = 0;
@@ -550,7 +566,7 @@ function preepub() {
           markerpreepub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreescolarpub.push(markerpreepub)
           markerpreescolarpub2.push(markerpreepub)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcadia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infopreepub.push(markerpreescolarpub2.length)
@@ -567,6 +583,8 @@ function primpriv() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markerprimariapriv2.length = 0;
@@ -588,7 +606,7 @@ function primpriv() {
           markerprimp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerprimariapriv.push(markerprimp)
           markerprimariapriv.push(markerprimp)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoprimpriv.push(markerprimariapriv2.length)
@@ -605,6 +623,8 @@ function primpub() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markerprimariapub2.length = 0;
@@ -626,7 +646,7 @@ function primpub() {
           markerprimpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerprimariapub.push(markerprimpub)
           markerprimariapub2.push(markerprimpub)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcaldia": selected ,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoprimpriv.push(markerprimariapub2.length)
@@ -643,6 +663,8 @@ function secpriv() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markersecundariapriv2.length = 0;
@@ -664,7 +686,7 @@ function secpriv() {
           markersecp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markersecundariapriv.push(markersecp)
           markersecundariapriv2.push(markersecp)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infosecpriv.push(markersecundariapriv2.length)
@@ -681,6 +703,8 @@ function secpub() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markersecundariapub2.length = 0;
@@ -702,7 +726,7 @@ function secpub() {
           markersecpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markersecundariapub.push(markersecpub)
           markersecundariapub2.push(markersecpub)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infosecpub.push(markersecundariapub2.length)
@@ -719,6 +743,8 @@ function prepapriv() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markerpreparatoriapriv2.length = 0;
@@ -741,7 +767,7 @@ function prepapriv() {
           markerprepap.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreparatoriapriv.push(markerprepap)
           markerpreparatoriapriv2.push(markerprepap)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoprepapriv.push(markerpreparatoriapriv2.length)
@@ -758,6 +784,8 @@ function prepapub() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markerpreparatoriapub2.length = 0;
@@ -779,7 +807,7 @@ function prepapub() {
           markerprepapub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markerpreparatoriapub.push(markerprepapub)
           markerpreparatoriapub2.push(markerprepapub)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infoprepapub.push(markerpreparatoriapub2.length)
@@ -796,6 +824,8 @@ function unipriv() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('privadoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markeruniversidadpriv2.length = 0;
@@ -817,7 +847,7 @@ function unipriv() {
           markerunip.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markeruniversidadpriv.push(markerunip)
           markeruniversidadpriv2.push(markerunip)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infounipriv.push(markeruniversidadpriv2.length)
@@ -834,6 +864,8 @@ function unipub() {
   const radius = document.getElementById('radioeducacion').value
   var check = document.getElementById('publicoeducacion');
   var checked = check.checked;
+  var combo = document.getElementById("deleg");
+  var selected = combo.options[combo.selectedIndex].text;
   if (checked) {
     colonias2.map((point1) => {
       markeruniversidadpub2.length = 0;
@@ -855,7 +887,7 @@ function unipub() {
           markerunipub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
           markeruniversidadpub.push(markerunipub)
           markeruniversidadpub2.push(markerunipub)
-          infogeneraleducacionservicios.push({"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
+          infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
       infounipub.push(markeruniversidadpub2.length)
