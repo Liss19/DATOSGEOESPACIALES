@@ -1218,8 +1218,8 @@ function limpiar() {
 
   infogeneralsalud.length = 0
   infogeneraleducacion.length = 0
-  infogeneralsaludservicios = 0
-  infogeneraleducacionservicios = 0
+  infogeneralsaludservicios.length = 0
+  infogeneraleducacionservicios.length = 0
   infohospitalpriv.length = 0
   infohospitalpub.length = 0
   infoconsulturiopriv.length = 0
