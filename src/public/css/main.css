@@ -1,12 +1,12 @@
-body{
-    padding: 0;
-    margin: 0;
-    overflow-y: hidden;
-  }
+body {
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+}
 
-  .container-fluid {
-    height: 100vh;
-  }
+.container-fluid {
+  height: 100vh;
+}
 
 .map-container {
   height: 94vh;
@@ -33,9 +33,49 @@ body{
 
 
 .awesome-marker i {
-    font-size: 18px;
-    margin-top: 8px;
-  }
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+ul {
+  padding: 0;
+  width: 100%;
+}
+
+li {
+  display: inline;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 19.5%;
+  margin-right: 0.625%;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+li:last-child a {
+  margin-right: 0;
+}
+
+a:link,
+a:visited,
+a:focus {
+  background: yellow;
+}
+
+a:hover {
+  background: orange;
+}
+
+a:active {
+  background: red;
+  color: white;
+}
+
 /*#opciones{
     height: 100%;
     width: 21.85%;
