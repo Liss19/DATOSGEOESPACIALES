@@ -176,7 +176,7 @@ async function consultoriosprivados() {
   consultprivado = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosconsultorioprivado') // 1
     .then(response => response.json()) // 2
 }
-console.log(consultprivado.length)
+
 
 consultoriospublicos()
 async function consultoriospublicos() {
@@ -352,7 +352,6 @@ function consultpriv() {
       markerconsultpriv2.length = 0;
       consultprivado.map((point) => {
         distance = map.distance([point1.lat, point1.long], [point.latitud, point.longitud])
-        console.log(distance)
         if (distance <= radius) {
           markercp = L.marker([point.latitud, point.longitud], { icon: marcadorConsultorios }).addTo(map)
           paradas.map((punto) => {
