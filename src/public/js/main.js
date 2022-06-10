@@ -284,7 +284,7 @@ function hospitalpriv() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerhp.bindPopup(('<b>' + point.nombre + '</b><br>' + point.nivel + '<br><p style="width: 100%;">' + result + '</p>'), estilopopup).openPopup()
+          markerhp.bindPopup(('<b>' + point.nombre + '</b><br>' + point.nivel), estilopopup).openPopup()
           markerhospitalpriv.push(markerhp)
           markerhospitalpriv2.push(markerhp)
           infogeneralsaludservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -325,7 +325,7 @@ function hospitalpub() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerhpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerhpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerhospitalpub.push(markerhpub)
           markerhospitalpub2.push(markerhpub)
           infogeneralsaludservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -365,7 +365,7 @@ function consultpriv() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markercp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markercp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerconsultpriv.push(markercp)
           markerconsultpriv2.push(markercp)
           infogeneralsaludservicios.push({"alcaldia":selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -405,7 +405,7 @@ function consultpub() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markercpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markercpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerconsultpub.push(markercp)
           markerconsultpub2.push(markercp)
           infogeneralsaludservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -445,7 +445,7 @@ function clinicapriv() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerclinp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerclinp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerclinicapriv.push(markerclinp)
           markerclinicapriv2.push(markerclinp)
           infogeneralsaludservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -484,7 +484,7 @@ function clinicapub() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerclinpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerclinpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerclinicapub.push(markerclinpub)
           markerclinicapub2.push(markerclinpub)
           infogeneralsaludservicios.push({"alcaldia": selected, "id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -524,7 +524,7 @@ function preepriv() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerpreep.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerpreep.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerpreescolarpriv.push(markerpreep)
           markerpreescolarpriv2.push(markerpreep)
           infogeneraleducacionservicios.push({"alcaldia": selected, "id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -564,7 +564,7 @@ function preepub() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerpreepub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerpreepub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerpreescolarpub.push(markerpreepub)
           markerpreescolarpub2.push(markerpreepub)
           infogeneraleducacionservicios.push({"alcadia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -604,7 +604,7 @@ function primpriv() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerprimp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerprimp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerprimariapriv.push(markerprimp)
           markerprimariapriv.push(markerprimp)
           infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -644,7 +644,7 @@ function primpub() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           console.log(result);
-          markerprimpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerprimpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerprimariapub.push(markerprimpub)
           markerprimariapub2.push(markerprimpub)
           infogeneraleducacionservicios.push({"alcaldia": selected ,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -684,7 +684,7 @@ function secpriv() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markersecp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markersecp.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markersecundariapriv.push(markersecp)
           markersecundariapriv2.push(markersecp)
           infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -724,7 +724,7 @@ function secpub() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markersecpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markersecpub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markersecundariapub.push(markersecpub)
           markersecundariapub2.push(markersecpub)
           infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -765,7 +765,7 @@ function prepapriv() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerprepap.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerprepap.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerpreparatoriapriv.push(markerprepap)
           markerpreparatoriapriv2.push(markerprepap)
           infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -805,7 +805,7 @@ function prepapub() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerprepapub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerprepapub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markerpreparatoriapub.push(markerprepapub)
           markerpreparatoriapub2.push(markerprepapub)
           infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -845,7 +845,7 @@ function unipriv() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerunip.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerunip.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markeruniversidadpriv.push(markerunip)
           markeruniversidadpriv2.push(markerunip)
           infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
@@ -885,7 +885,7 @@ function unipub() {
           let single = [].concat(...rutas2);
           const dataArr = new Set(single);
           let result = [...dataArr];
-          markerunipub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel + '<br>' + result).openPopup()
+          markerunipub.bindPopup('<b>' + point.nombre + '</b><br>' + point.nivel).openPopup()
           markeruniversidadpub.push(markerunipub)
           markeruniversidadpub2.push(markerunipub)
           infogeneraleducacionservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
