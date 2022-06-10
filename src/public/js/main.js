@@ -411,7 +411,7 @@ function consultpub() {
           infogeneralsaludservicios.push({"alcaldia": selected,"id_colonia": point1.id, "colonia": point1.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)})
         }
       })
-      infoconsulturiopub.push(markerconsultoriopub2.length)
+      infoconsultoriopub.push(markerconsultpub2.length)
     })
   } else {
     markerconsultpub.map((point) => {
