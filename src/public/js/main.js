@@ -46,7 +46,7 @@ var marcadorConsultoriosPub = L.AwesomeMarkers.icon({
 var marcadorClinicas = L.AwesomeMarkers.icon({
   icon: 'hospital',
   prefix: 'fa',
-  markerColor: 'MediumSpringGreen',
+  markerColor: 'yellow',
   iconColor: 'white'
 });
 
