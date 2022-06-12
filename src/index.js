@@ -25,8 +25,8 @@ app.use(express.static(path.join(__dirname,'public')));
 
 //body parser
 var bodyParser = require('body-parser');
-app.use(bodyParser.json({ limit: '100mb' }));
-app.use(bodyParser.urlencoded({ limit: '100mb', extended: true, parameterLimit: 100000 }));
+app.use(bodyParser.json({ limit: '1024mb' }));
+app.use(bodyParser.urlencoded({ limit: '1024mb', extended: true, parameterLimit: 1024000 }));
 
 //servidor
 app.listen(app.get('port'),() =>{
