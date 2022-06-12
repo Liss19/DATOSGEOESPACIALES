@@ -1110,33 +1110,21 @@ function guardararchivo() {
 
   fetch('/creararchivosalud', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
     body: JSON.stringify(infogeneralsalud)
   }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 
   fetch('/creararchivoeducacion', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
     body: JSON.stringify(infogeneraleducacion)
   }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 
   fetch('/creararchivosaludservicios', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
     body: JSON.stringify(infogeneralsaludservicios)
   }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 
   fetch('/creararchivoeducacionservicios', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
     body: JSON.stringify(infogeneraleducacionservicios)
   }).then(res => console.log('archivo creado')).catch(err => console.log(err))
 }
