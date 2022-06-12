@@ -7,7 +7,7 @@ const archivo = require('../controlador/archivo')
 
 var bodyParser = require('body-parser');
 
-var urlencodedParser = bodyParser.urlencoded({ limit: '50mb', extended: true });
+var urlencodedParser = bodyParser.urlencoded({ limit: '100mb', extended: true });
 
 // router.post('...', urlencodedParser, function (req, res) {
 // ...
