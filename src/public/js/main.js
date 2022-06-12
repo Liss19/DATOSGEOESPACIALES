@@ -1103,6 +1103,7 @@ function datosgenerales() {
     contador++;
   })
   
+  console.log(infogeneralsaludservicios)
   guardararchivo()
 }
 
