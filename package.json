@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "csv-stringify": "^6.1.0",
     "csv-writer": "^1.6.0",
     "ejs-mate": "^3.0.0",
