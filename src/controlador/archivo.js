@@ -54,7 +54,6 @@ function creararchivoeducacionservicios(datos) {
 }
 
 async function creararchivocsvsalud(datos) {
-    let data = JSON.stringify(datos);
     var createCsvWriter = csvwriter.createObjectCsvWriter
 
     // Passing the column names intp the module
@@ -84,7 +83,6 @@ async function creararchivocsvsalud(datos) {
 }
 
 async function creararchivocsveducacion(datos) {
-    let data = JSON.stringify(datos);
     var createCsvWriter = csvwriter.createObjectCsvWriter
 
     // Passing the column names intp the module
@@ -118,7 +116,6 @@ async function creararchivocsveducacion(datos) {
 }
 
 async function creararchivocsvsaludservicios(datos) {
-    let data = JSON.stringify(datos);
     var createCsvWriter = csvwriter.createObjectCsvWriter
 
     //"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)
@@ -148,7 +145,6 @@ async function creararchivocsvsaludservicios(datos) {
 }
 
 async function creararchivocsveducacionservicios(datos) {
-    let data = JSON.stringify(datos);
     var createCsvWriter = csvwriter.createObjectCsvWriter
 
     //"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)

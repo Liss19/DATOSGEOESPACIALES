@@ -1,13 +1,10 @@
 const router = require('express').Router();
+const express = require('express');
 const { mongoose } = require('../modelo/conexion')
 var Colonias = require('../modelo/schema')
 var Educacion = require('../modelo/schemaescuela')
 var  Salud = require('../modelo/schemasalud')
-const archivo = require('../controlador/archivo')
-
-var bodyParser = require('body-parser');
-
-var urlencodedParser = bodyParser.urlencoded({ limit: '1024MB', extended: true });
+const archivo = require('../controlador/archivo');
 
 // router.post('...', urlencodedParser, function (req, res) {
 // ...
@@ -204,7 +201,7 @@ router.route('/obtenerdatosuniversidadpublica').get( (req,res)=> {
 
 });
 
-router.post('/creararchivosalud',urlencodedParser,(req,res)=>{
+router.post('/creararchivosalud',(req,res)=>{
     
     var datos = req.body
     console.log(datos)
@@ -212,7 +209,7 @@ router.post('/creararchivosalud',urlencodedParser,(req,res)=>{
     res.send('ggs')
 })
 
-router.post('/creararchivoeducacion',urlencodedParser,(req,res)=>{
+router.post('/creararchivoeducacion',(req,res)=>{
     
     var datos = req.body
     console.log(datos)
@@ -220,7 +217,7 @@ router.post('/creararchivoeducacion',urlencodedParser,(req,res)=>{
     res.send('ggs')
 })
 
-router.post('/creararchivosaludservicios',urlencodedParser,(req,res)=>{
+router.post('/creararchivosaludservicios',(req,res)=>{
     
   var datos = req.body
   console.log(datos)
@@ -228,7 +225,7 @@ router.post('/creararchivosaludservicios',urlencodedParser,(req,res)=>{
   res.send('ggs')
 })
 
-router.post('/creararchivoeducacionservicios',urlencodedParser,(req,res)=>{
+router.post('/creararchivoeducacionservicios',(req,res)=>{
   
   var datos = req.body
   console.log(datos)
@@ -236,48 +233,48 @@ router.post('/creararchivoeducacionservicios',urlencodedParser,(req,res)=>{
   res.send('ggs')
 })
 
-router.get('/descargar',urlencodedParser, (req,res)=>{
+router.get('/descargar', (req,res)=>{
     res.download('datosgeoespacialessalud.json', function(error){
         console.log("Error : ", error)
     })
 })
-router.get('/descargarcsv',urlencodedParser, (req,res)=>{
+router.get('/descargarcsv', (req,res)=>{
   res.download('datosgeoespacialessalud.csv', function(error){
       console.log("Error : ", error)
   })
 })
 
-router.get('/descargareducacion',urlencodedParser, (req,res)=>{
+router.get('/descargareducacion', (req,res)=>{
     res.download('datosgeoespacialeseducacion.json', function(error){
         console.log("Error : ", error)
     })
 })
 
-router.get('/descargareducacioncsv',urlencodedParser, (req,res)=>{
+router.get('/descargareducacioncsv', (req,res)=>{
   res.download('datosgeoespacialeseducacion.csv', function(error){
       console.log("Error : ", error)
   })
 })
 
-router.get('/descargarservicios',urlencodedParser, (req,res)=>{
+router.get('/descargarservicios', (req,res)=>{
   res.download('datosgeoespacialessaludservicios.json', function(error){
       console.log("Error : ", error)
   })
 })
 
-router.get('/descargarservicioscsv',urlencodedParser, (req,res)=>{
+router.get('/descargarservicioscsv', (req,res)=>{
   res.download('datosgeoespacialessaludservicios.csv', function(error){
       console.log("Error : ", error)
   })
 })
 
-router.get('/descargareducacionservicios',urlencodedParser, (req,res)=>{
+router.get('/descargareducacionservicios', (req,res)=>{
   res.download('datosgeoespacialeseducacionservicios.json', function(error){
       console.log("Error : ", error)
   })
 })
 
-router.get('/descargareducacionservicioscsv',urlencodedParser, (req,res)=>{
+router.get('/descargareducacionservicioscsv', (req,res)=>{
   res.download('datosgeoespacialeseducacionservicios.csv', function(error){
       console.log("Error : ", error)
   })

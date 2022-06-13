@@ -155,104 +155,104 @@ var rutasJS = L.geoJSON(rutas, {
 // Datos de MongoDB
 colonias()
 async function colonias() {
-  colonias1 = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatoscolonias') // 1
+  colonias1 = await fetch('http://localhost:3000/obtenerdatoscolonias') // 1
     .then(response => response.json()) // 2
 }
 
 hospitalesprivados()
 async function hospitalesprivados() {
-  hospitalprivado = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatoshospitalprivado') // 1
+  hospitalprivado = await fetch('http://localhost:3000/obtenerdatoshospitalprivado') // 1
     .then(response => response.json()) // 2
 }
 
 hospitalespublicos()
 async function hospitalespublicos() {
-  hospitalpublico = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatoshospitalpublico') // 1
+  hospitalpublico = await fetch('http://localhost:3000/obtenerdatoshospitalpublico') // 1
     .then(response => response.json()) // 2
 }
 
 consultoriosprivados()
 async function consultoriosprivados() {
-  consultprivado = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosconsultorioprivado') // 1
+  consultprivado = await fetch('http://localhost:3000/obtenerdatosconsultorioprivado') // 1
     .then(response => response.json()) // 2
 }
 
 
 consultoriospublicos()
 async function consultoriospublicos() {
-  consultpublico = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosconsultoriopublico') // 1
+  consultpublico = await fetch('http://localhost:3000/obtenerdatosconsultoriopublico') // 1
     .then(response => response.json()) // 2
 }
 
 clinicasprivadas()
 async function clinicasprivadas() {
-  clinicaprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosclinicaprivada') // 1
+  clinicaprivada = await fetch('http://localhost:3000/obtenerdatosclinicaprivada') // 1
     .then(response => response.json()) // 2
 }
 
 clinicaspublicas()
 async function clinicaspublicas() {
-  clinicapublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosclinicapublica') // 1
+  clinicapublica = await fetch('http://localhost:3000/obtenerdatosclinicapublica') // 1
     .then(response => response.json()) // 2
 }
 
 preescolarprivada()
 async function preescolarprivada() {
-  preeprivado = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatospreescolarprivada') // 1
+  preeprivado = await fetch('http://localhost:3000/obtenerdatospreescolarprivada') // 1
     .then(response => response.json()) // 2
 }
 
 preescolarpublica()
 async function preescolarpublica() {
-  preepublico = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatospreescolarpublica') // 1
+  preepublico = await fetch('http://localhost:3000/obtenerdatospreescolarpublica') // 1
     .then(response => response.json()) // 2
 }
 
 primariaprivada()
 async function primariaprivada() {
-  primprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosprimariaprivada') // 1
+  primprivada = await fetch('http://localhost:3000/obtenerdatosprimariaprivada') // 1
     .then(response => response.json()) // 2
 }
 
 primariapublica()
 async function primariapublica() {
-  primpublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosprimariapublica') // 1
+  primpublica = await fetch('http://localhost:3000/obtenerdatosprimariapublica') // 1
     .then(response => response.json()) // 2
 }
 
 secundariaprivada()
 async function secundariaprivada() {
-  secprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatossecundariaprivada') // 1
+  secprivada = await fetch('http://localhost:3000/obtenerdatossecundariaprivada') // 1
     .then(response => response.json()) // 2
 }
 
 secundariapublica()
 async function secundariapublica() {
-  secpublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatossecundariapublica') // 1
+  secpublica = await fetch('http://localhost:3000/obtenerdatossecundariapublica') // 1
     .then(response => response.json()) // 2
 }
 
 preparatoriaprivada()
 async function preparatoriaprivada() {
-  prepaprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatospreparatoriaprivada') // 1
+  prepaprivada = await fetch('http://localhost:3000/obtenerdatospreparatoriaprivada') // 1
     .then(response => response.json()) // 2
 }
 
 preparatoriapublica()
 async function preparatoriapublica() {
-  prepapublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatospreparatoriapublica') // 1
+  prepapublica = await fetch('http://localhost:3000/obtenerdatospreparatoriapublica') // 1
     .then(response => response.json()) // 2
 }
 
 universidadprivada()
 async function universidadprivada() {
-  uniprivada = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosuniversidadprivada') // 1
+  uniprivada = await fetch('http://localhost:3000/obtenerdatosuniversidadprivada') // 1
     .then(response => response.json()) // 2
 }
 
 universidadpublica()
 async function universidadpublica() {
-  unipublica = await fetch('https://datosgeoespaciales.herokuapp.com/obtenerdatosuniversidadpublica') // 1
+  unipublica = await fetch('http://localhost:3000/obtenerdatosuniversidadpublica') // 1
     .then(response => response.json()) // 2
 }
 
