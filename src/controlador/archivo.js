@@ -47,7 +47,7 @@ function creararchivosaludservicios(datos) {
 
 function creararchivoeducacionservicios(datos) {
     let data = JSON.stringify(datos);
-    fs.writeFile('datosgeoespacialeseducacionservicios.json', data, (err) => {
+     fs.writeFile('datosgeoespacialeseducacionservicios.json', data, (err) => {
         if (err) throw err;
         console.log('Data written to file');
     });
@@ -116,6 +116,7 @@ async function creararchivocsveducacion(datos) {
 }
 
 async function creararchivocsvsaludservicios(datos) {
+    console.log('ola2')
     var createCsvWriter = csvwriter.createObjectCsvWriter
 
     //"id_colonia": point.id, "colonia": point.nombre, "radio" : radius, "tipo" : point.tipo, "nivel": point.nivel, "id_unidad": point.id, "nombre_unidad": point.nombre, "distancia": Math.round(distance)

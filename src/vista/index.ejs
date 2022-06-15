@@ -79,8 +79,7 @@
                         <label class="form-check-label" for="flexCheckDefault">
                             Consultorio Medico
                         </label> <br>
-                        <input class="form-check-input" type="checkbox" value="Clinica" id="Clinica"
-                            onclick="Salud()">
+                        <input class="form-check-input" type="checkbox" value="Clinica" id="Clinica" onclick="Salud()">
                         <label class="form-check-label" for="flexCheckDefault">
                             Clinica Medica
                         </label> <br>
@@ -98,7 +97,21 @@
                         <label class="form-check-label" for="flexCheckDefault">
                             Publico
                         </label> <br><br>
+                        <input type="button" value="Crear Archivo Salud" id="botonsalud" onclick="datosgenerales()"
+                            class="btn btn-success btn-sm"><br>
                     </div>
+                    <a href="/descargar">
+                        Descargar Archivo Salud JSON
+                    </a>
+                    <a href="/descargarcsv">
+                        Descargar Archivo Salud CSV
+                    </a>
+                    <a href="/descargarservicios">
+                        Descargar Archivo Salud Servicios JSON
+                    </a>
+                    <a href="/descargarservicioscsv">
+                        Descargar Archivo Salud Servicios CSV
+                    </a>
                     <div id="opcionesservicios">
                         <p class="h5">Sector Educación</p>
                         <div class="mb-3">
@@ -125,17 +138,17 @@
                         <input class="form-check-input" type="checkbox" value="Secundaria" id="Secundaria"
                             onclick="Educacion()">
                         <label class="form-check-label" for="flexCheckDefault">
-                            Secundaria 
+                            Secundaria
                         </label> <br>
                         <input class="form-check-input" type="checkbox" value="Preparatoria" id="Preparatoria"
                             onclick="Educacion()">
                         <label class="form-check-label" for="flexCheckDefault">
-                            Preparatoria 
+                            Preparatoria
                         </label> <br>
                         <input class="form-check-input" type="checkbox" value="Universidad" id="Universidad"
                             onclick="Educacion()">
                         <label class="form-check-label" for="flexCheckDefault">
-                            Universidad 
+                            Universidad
                         </label> <br>
                         <br>
                         <p class="form-label">Seleccionar tipo</p>
@@ -149,27 +162,14 @@
                         <label class="form-check-label" for="flexCheckDefault">
                             Publico
                         </label> <br><br>
-                        <input type="button" value="Crear Archivo" id="boton" onclick="datosgenerales()"
+                        <input type="button" value="Crear Archivo Educacion" id="boton" onclick="datosgeneraleseducacion()"
                             class="btn btn-success btn-sm"><br>
                     </div>
-
-                    <a href="/descargar">
-                        Descargar Archivo Salud JSON
-                    </a>
-                    <a href="/descargarcsv">
-                        Descargar Archivo Salud CSV
-                    </a>
                     <a href="/descargareducacion">
                         Descargar Archivo Educacion JSON
                     </a>
                     <a href="/descargareducacioncsv">
                         Descargar Archivo Educacion CSV
-                    </a>
-                    <a href="/descargarservicios">
-                        Descargar Archivo Salud Servicios JSON
-                    </a>
-                    <a href="/descargarservicioscsv">
-                        Descargar Archivo Salud Servicios CSV
                     </a>
                     <a href="/descargareducacionservicios">
                         Descargar Archivo Educacion Servicios JSON
@@ -177,7 +177,6 @@
                     <a href="/descargareducacionservicioscsv">
                         Descargar Archivo Educacion Servicios CSV
                     </a>
-
                     <input type="button" value="Limpiar" id="boton" onclick="limpiar()"
                             class="btn btn-success btn-sm"><br>
                 </div>

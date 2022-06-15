@@ -1,14 +1,10 @@
 const router = require('express').Router();
-const express = require('express');
 const { mongoose } = require('../modelo/conexion')
 var Colonias = require('../modelo/schema')
 var Educacion = require('../modelo/schemaescuela')
 var  Salud = require('../modelo/schemasalud')
 const archivo = require('../controlador/archivo');
 
-// router.post('...', urlencodedParser, function (req, res) {
-// ...
-// });
 
 router.get('/', (req,res)=> {
     res.render('index');
@@ -202,33 +198,25 @@ router.route('/obtenerdatosuniversidadpublica').get( (req,res)=> {
 });
 
 router.post('/creararchivosalud',(req,res)=>{
-    
     var datos = req.body
-    console.log(datos)
     archivo.obtenerdatos(datos);
     res.send('ggs')
 })
 
 router.post('/creararchivoeducacion',(req,res)=>{
-    
     var datos = req.body
-    console.log(datos)
     archivo.obtenerdatoseducacion(datos);
     res.send('ggs')
 })
 
 router.post('/creararchivosaludservicios',(req,res)=>{
-    
   var datos = req.body
-  console.log(datos)
   archivo.obtenerdatosservicios(datos);
   res.send('ggs')
 })
 
 router.post('/creararchivoeducacionservicios',(req,res)=>{
-  
   var datos = req.body
-  console.log(datos)
   archivo.obtenerdatoseducacionservicios(datos);
   res.send('ggs')
 })
